@@ -1,3 +1,8 @@
+let observer = () => {
+  // функция для работы destroy Swiper
+  console.log("observer");
+};
+
 addEventListener("scroll", (event) => {
   currentScroll = $(window).scrollTop();
   // console.log("currentScroll", currentScroll);
@@ -173,37 +178,31 @@ $(document).ready(function () {
 
   if ($(".slider-design").length > 0) {
     const swiper = new Swiper(".slider-design", {
-      slidesPerView: "auto",
+      slidesPerView: 1,
+      spaceBetween: 25,
       initialSlide: 1,
-      spaceBetween: 16,
-      centeredSlides: true,
       watchSlidesProgress: true,
       navigation: {
         nextEl: ".main-design-section .arrows-controls__right",
         prevEl: ".main-design-section .arrows-controls__left",
       },
-      // breakpoints: {
-      //   0: {
-      //     slidesPerView: 1.28,
-      //     initialSlide: 3,
-      //     spaceBetween: 16,
-      //   },
-      //   768: {
-      //     slidesPerView: 3,
-      //     initialSlide: 3,
-      //     spaceBetween: 8,
-      //   },
-      //   1024: {
-      //     slidesPerView: 3,
-      //     initialSlide: 3,
-      //     spaceBetween: 16,
-      //   },
-      //   1280: {
-      //     slidesPerView: 3,
-      //     initialSlide: 3,
-      //     spaceBetween: 24,
-      //   },
-      // },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          initialSlide: 0,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 15,
+          initialSlide: 1,
+        },
+        1280: {
+          slidesPerView: 1,
+          spaceBetween: 25,
+          initialSlide: 1,
+        },
+      },
     });
   }
 
@@ -304,6 +303,88 @@ $(document).ready(function () {
     $(window).on("resize", function () {
       setHeightBlock();
     });
+  }
+
+  if ($(".stock-slider").length > 0) {
+    if ($(window).width() >= 768) {
+      initStockDesktop();
+    } else {
+      initStockMobile();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() >= 768) {
+        initStockDesktop();
+      } else {
+        initStockMobile();
+      }
+    });
+
+    function initStockDesktop() {
+      if ($(".stock-slider").hasClass("init-desktop")) {
+        $(".stock-list").attr("style", "").removeClass("opened");
+        $(".stock-controls").removeClass("hidden");
+        return false;
+      }
+
+      if ($(".stock-slider").hasClass("init-mobile")) {
+        $(".stock-slider").removeClass("init-mobile");
+        observer(); // destroy swiper
+      }
+
+      $(".stock-slider").addClass("init-desktop");
+      $(".stock-list").removeClass("opened");
+      $(".stock-controls").removeClass("hidden");
+
+      $(".stock-controls .btn").on("click", function (e) {
+        e.preventDefault();
+
+        let count = $(".stock-item").length / 2;
+        let itemHeight = $(".stock-item").outerHeight();
+        let parentsHeight = itemHeight * count;
+        let gap = $(window).width() >= 1280 ? 40 : 20;
+        parentsHeight = parentsHeight + count * gap - gap;
+
+        $(".stock-controls").addClass("hidden");
+        $(".stock-list").height(parentsHeight).addClass("opened");
+      });
+    }
+
+    function initStockMobile() {
+      if ($(".stock-slider").hasClass("init-mobile")) {
+        return false;
+      }
+
+      if ($(".stock-slider").hasClass("init-desktop")) {
+        $(".stock-slider").removeClass("init-desktop");
+      }
+
+      $(".stock-slider").addClass("init-mobile");
+
+      const swiperStock = new Swiper(".stock-slider", {
+        slidesPerView: 1,
+        initialSlide: 1,
+        centeredSlides: true,
+        spaceBetween: 16,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".stock-section .arrows-controls__right",
+          prevEl: ".stock-section .arrows-controls__left",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            initialSlide: 1,
+            centeredSlides: true,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      observer = () => {
+        swiperStock.destroy(true, true);
+      };
+    }
   }
 });
 

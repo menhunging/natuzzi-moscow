@@ -1,2 +1,17 @@
 @media (max-width: 479px) {
 }
+
+@media (max-width: 389px) {
+  .slider-design .swiper-slide.swiper-slide-active .main-design {
+    width: 205px;
+  }
+
+  .slider-design .swiper-slide.swiper-slide-next + .swiper-slide .main-design {
+    margin-left: -80px;
+  }
+
+  .slider-design {
+    width: 205px;
+    margin: 25px 0 0 0;
+  }
+}

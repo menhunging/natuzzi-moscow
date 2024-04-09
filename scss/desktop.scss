@@ -181,7 +181,7 @@ section {
 .catalog-main-item {
   background-color: $colorYellow;
   position: relative;
-  transition: opacity 1s, transform 1.5s;
+  transition: opacity 1.5s, transform 3s;
   opacity: 0;
   transform: translateY(50px);
 
@@ -381,15 +381,68 @@ section {
 .main-design-section {
 }
 
+.main-design__slider {
+  width: 100%;
+  overflow: hidden;
+}
+
 .slider-design {
+  width: 424px;
+  overflow: visible;
+  margin: 40px 0 0 225px;
+
   .swiper-wrapper {
   }
 
   .swiper-slide {
     width: 200px;
+    height: 424px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-    &:nth-child(2) {
-      width: 424px;
+    .main-design {
+      width: 200px;
+      height: 200px;
+    }
+
+    &.swiper-slide-prev {
+      .main-design {
+        margin-left: auto;
+      }
+    }
+
+    &.swiper-slide-next {
+      & + .swiper-slide {
+        .main-design {
+          margin-left: -225px;
+        }
+
+        & + .swiper-slide {
+          .main-design {
+            margin-left: -450px;
+          }
+        }
+      }
+    }
+
+    &.swiper-slide-active {
+      z-index: 5;
+
+      .main-design {
+        width: 424px;
+        height: 100%;
+      }
+
+      .main-design__name {
+        opacity: 1;
+        pointer-events: initial;
+        z-index: 3;
+      }
+
+      .picture {
+        height: 100%;
+      }
     }
   }
 }
@@ -398,12 +451,159 @@ section {
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
+  position: relative;
+  width: 424px;
+  height: 200px;
+  transition: height 0.3s;
 
   .picture {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    transition: height 0.3s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include invisLink;
   }
 
   &__name {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 24px);
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: -1;
+    @include text-decoration-hover($colorDark);
+  }
+}
+
+.video-section {
+  position: relative;
+  padding-top: calc(800 / 1920 * 100%);
+  margin: 40px 0;
+
+  video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.stock-section {
+  .arrows-controls {
+    display: none;
+  }
+}
+
+.section__head {
+}
+
+.stock-slider {
+  margin-top: 40px;
+}
+
+.stock-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 24px;
+  height: calc(312px + 312px + 40px);
+  overflow: hidden;
+  transition: height 0.3s;
+
+  &.opened {
+    .stock-item {
+      opacity: 1;
+      pointer-events: initial;
+      transform: translateY(0);
+    }
+  }
+
+  .stock-item {
+    transform: translateY(150px);
+
+    &:nth-child(-n + 3) {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+}
+
+.stock-item {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  display: flex;
+  gap: 16px;
+  min-height: 312px;
+  gap: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s, opacity 0.3s;
+
+  .picture {
+    width: 100%;
+    height: 100%;
+    @include invisLink;
+  }
+
+  .caption {
+    @include text-decoration-hover($colorDark);
+  }
+
+  .stock-item__text {
+    margin-top: 24px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+}
+
+.stock-item__media {
+  position: relative;
+  width: calc(50% - 8px);
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-item__content {
+  width: calc(50% - 8px);
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-item__link {
+  margin-top: auto;
+  margin-left: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.469675 13.5303C0.176775 13.2374 0.176775 12.7625 0.469675 12.4696L5.93931 6.99998L0.469675 1.53028C0.176775 1.23738 0.176775 0.762575 0.469675 0.469675C0.762575 0.176775 1.23738 0.176775 1.53028 0.469675L7.53031 6.46968C7.8232 6.76258 7.8232 7.23738 7.53031 7.53028L1.53028 13.5303C1.23738 13.8232 0.762575 13.8232 0.469675 13.5303Z' fill='%2335291E'/%3e%3c/svg%3e ");
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: solid 1px $colorDark;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.stock-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -161px;
+
+  &.hidden {
+    display: none;
+  }
+
+  .btn {
+    z-index: 5;
   }
 }

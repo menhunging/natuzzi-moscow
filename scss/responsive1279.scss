@@ -136,6 +136,12 @@
     line-height: 24px;
   }
 
+  h3,
+  .caption--h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
   .grettings-section {
     font-size: 14px;
     line-height: 16px;
@@ -270,5 +276,87 @@
       height: 182px;
       margin-top: auto;
     }
+  }
+
+  .slider-design {
+    width: 265px;
+    margin: 25px 0 0 140px;
+
+    .swiper-wrapper {
+    }
+
+    .swiper-slide {
+      width: 125px;
+      height: 265px;
+
+      .main-design {
+        width: 125px;
+        height: 125px;
+      }
+
+      &.swiper-slide-next {
+        & + .swiper-slide {
+          .main-design {
+            margin-left: -140px;
+          }
+
+          & + .swiper-slide {
+            .main-design {
+              margin-left: -280px;
+            }
+          }
+        }
+      }
+
+      &.swiper-slide-active {
+        .main-design {
+          width: 265px;
+        }
+      }
+    }
+  }
+
+  .main-design__name {
+    font-size: 16px;
+    line-height: 20px;
+    left: calc(100% + 14px);
+  }
+
+  .video-section {
+    margin: 20px 0;
+  }
+
+  .stock-slider {
+    margin-top: 20px;
+  }
+
+  .stock-list {
+    gap: 20px 16px;
+
+    &:not(.opened) {
+      height: 408px;
+    }
+  }
+
+  .stock-item {
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 194px;
+    gap: 12px;
+  }
+
+  .stock-item .stock-item__text {
+    -webkit-line-clamp: 4;
+    margin-top: 12px;
+  }
+
+  .stock-item__link {
+    width: 32px;
+    height: 32px;
+    background-size: 6px;
+  }
+
+  .stock-controls {
+    margin-top: -120px;
   }
 }

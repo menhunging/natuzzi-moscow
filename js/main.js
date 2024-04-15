@@ -8,6 +8,15 @@ addEventListener("scroll", (event) => {
   // console.log("currentScroll", currentScroll);
 });
 
+addEventListener("wheel", (evt) => {
+  console.log(evt.deltaY);
+  if (evt.deltaY < 0) {
+    $("header").removeClass("hidden");
+  } else {
+    $("header").addClass("hidden");
+  }
+});
+
 $(document).ready(function () {
   if ($(".burger").length > 0) {
     let menu = $(".header .menu");
@@ -365,6 +374,7 @@ $(document).ready(function () {
         slidesPerView: 1,
         initialSlide: 1,
         centeredSlides: true,
+        autoHeight: true,
         spaceBetween: 16,
         watchSlidesProgress: true,
         navigation: {
@@ -384,6 +394,147 @@ $(document).ready(function () {
       observer = () => {
         swiperStock.destroy(true, true);
       };
+    }
+  }
+
+  if ($(".slider-default").length > 0) {
+    const sliders = document.querySelectorAll(".slider-default");
+    let mySwipers = [];
+
+    function sliderinit() {
+      sliders.forEach((slider, index) => {
+        let count = 1;
+        let initial = 0;
+        let navNext = undefined;
+        let navPrev = undefined;
+
+        if (!slider.swiper) {
+          if ($(slider).hasClass("slider-default--spaces")) {
+            count = 2;
+            initial = $(slider).find(".slider-default__slide").length;
+
+            navNext = $(slider)
+              .parents(".slider-default-wrapper")
+              .find(".arrows-controls__right")[0];
+            navPrev = $(slider)
+              .parents(".slider-default-wrapper")
+              .find(".arrows-controls__left")[0];
+          }
+
+          mySwipers[index] = new Swiper(slider, {
+            slidesPerView: count,
+            spaceBetween: 24,
+            initialSlide: initial,
+            navigation: {
+              nextEl: navNext && navNext,
+              prevEl: navPrev && navPrev,
+            },
+            breakpoints: {
+              0: {
+                slidesPerView: 1,
+                initialSlide: 1,
+                centeredSlides: true,
+                spaceBetween: 16,
+              },
+              768: {
+                slidesPerView: count,
+                spaceBetween: 16,
+                centeredSlides: false,
+              },
+              1280: {
+                spaceBetween: 24,
+                centeredSlides: false,
+              },
+            },
+          });
+        } else {
+          return;
+        }
+      });
+    }
+
+    sliders.length && sliderinit();
+  }
+
+  if ($(".slider-picture").length > 0) {
+    const sliders = document.querySelectorAll(".slider-picture");
+    let mySwipers = [];
+
+    function sliderinit() {
+      sliders.forEach((slider, index) => {
+        let navNext = $(slider).find(".swiper-button-next")[0];
+        let navPrev = $(slider).find(".swiper-button-prev")[0];
+
+        if (!slider.swiper) {
+          mySwipers[index] = new Swiper(slider, {
+            slidesPerView: 1,
+            spaceBetween: 14,
+            initialSlide: 0,
+            nested: true,
+            navigation: {
+              nextEl: navNext,
+              prevEl: navPrev,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            on: {
+              init: function (swiper) {},
+              slideChange: function (swiper) {},
+            },
+            breakpoints: {
+              // 0: {
+              //   slidesPerView: 1,
+              //   spaceBetween: 16,
+              // },
+            },
+          });
+        } else {
+          return;
+        }
+      });
+    }
+
+    sliders.length && sliderinit();
+  }
+
+  if ($(".footer-menu__title").length > 0) {
+    if ($(window).width() < 1280) {
+      initMobileFooter();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() < 1280) {
+        initMobileFooter();
+      } else {
+        $(".footer-menu").removeClass("init");
+        $(".footer-menu__title").off("click");
+      }
+    });
+
+    function initMobileFooter() {
+      if ($(".footer-menu").hasClass("init")) return false;
+
+      $(".footer-menu").addClass("init");
+
+      $(".footer-menu__title").on("click", function () {
+        if (!$(this).hasClass("active")) {
+          $(this)
+            .addClass("active")
+            .parents(".footer-menu__col")
+            .find("ul")
+            .stop()
+            .slideDown();
+        } else {
+          $(this)
+            .removeClass("active")
+            .parents(".footer-menu__col")
+            .find("ul")
+            .stop()
+            .slideUp();
+        }
+      });
     }
   }
 });

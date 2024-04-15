@@ -14,4 +14,10 @@
     width: 205px;
     margin: 25px 0 0 0;
   }
+
+  .subscribe-section__content {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 16px;
+  }
 }

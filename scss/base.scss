@@ -445,27 +445,29 @@ div {
 }
 
 .swiper-pagination-bullets {
-  bottom: auto !important;
+  bottom: 8px !important;
   top: auto !important;
   left: 0;
   width: 100%;
-  position: relative;
-  margin-top: 24px;
+  position: absolute;
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
+  z-index: 5;
+  padding: 0 16px;
 
   .swiper-pagination-bullet {
     width: 8px;
-    height: 8px;
-    background-color: #d8d8d8;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.4);
     opacity: 1;
-    @include border-radius(8px);
+    border-radius: 0;
     margin: 0 !important;
+    flex: 1;
   }
 
   .swiper-pagination-bullet-active {
-    background-color: $colorBlack;
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 

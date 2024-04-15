@@ -590,20 +590,236 @@ section {
   transition: all 0.3s;
 
   &:hover {
-    opacity: 0.75;
+    background-color: $colorDark;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.469675 13.5303C0.176775 13.2374 0.176775 12.7625 0.469675 12.4696L5.93931 6.99998L0.469675 1.53028C0.176775 1.23738 0.176775 0.762575 0.469675 0.469675C0.762575 0.176775 1.23738 0.176775 1.53028 0.469675L7.53031 6.46968C7.8232 6.76258 7.8232 7.23738 7.53031 7.53028L1.53028 13.5303C1.23738 13.8232 0.762575 13.8232 0.469675 13.5303Z' fill='%23ffffff'/%3e%3c/svg%3e ");
   }
 }
 
 .stock-controls {
   display: flex;
   justify-content: flex-end;
-  margin-top: -161px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
 
   &.hidden {
     display: none;
   }
 
   .btn {
+    position: relative;
     z-index: 5;
   }
+}
+
+.stock-section__inner {
+  position: relative;
+  width: 100%;
+}
+
+.special-section {
+  background-color: $colorYellow;
+}
+
+.slider-default-wrapper {
+  overflow: hidden;
+}
+
+.slider-default {
+  margin-top: 40px;
+}
+
+.slider-default__slide {
+}
+
+.slider-picture {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  position: relative;
+  z-index: 5;
+
+  &:hover {
+    .slider-picture__controls {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .swiper-pagination {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+  .slider-picture__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: calc(100% - 45px);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    padding: 0 16px;
+    transform: translateY(0%);
+    z-index: 5;
+    transition: all 0.3s;
+
+    .swiper-button-prev {
+      position: relative;
+      margin: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent;
+      border: 0;
+      width: 32px;
+      height: 32px;
+
+      &::after {
+        color: $colorWhite;
+      }
+    }
+
+    .swiper-button-next {
+      position: relative;
+      margin: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent;
+      border: 0;
+      width: 32px;
+      height: 32px;
+
+      &::after {
+        color: $colorWhite;
+      }
+    }
+  }
+
+  .picture {
+    padding-top: calc(389 / 648 * 100%);
+  }
+
+  .swiper-pagination {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.slider-default__text {
+  margin-top: 16px;
+}
+
+.slider-default--spaces {
+  overflow: visible;
+}
+
+.special-project {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+
+  &__head {
+    width: calc(50% - 12px);
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      margin-top: auto;
+    }
+  }
+
+  .slider-default {
+    margin: 0;
+    width: calc(50% - 12px);
+  }
+}
+
+.config-section {
+}
+
+.config-section__row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.config-section__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  max-width: 423px;
+
+  .btn {
+    margin-left: auto;
+  }
+}
+
+.config-section__right {
+  width: 70%;
+  max-width: 744px;
+
+  .picture {
+    width: 100%;
+    padding-top: calc(376 / 744 * 100%);
+  }
+}
+
+.subscribe-section {
+  background-color: $colorYellow;
+  width: 100%;
+  padding: 26px 0;
+}
+
+.subscribe-section__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .caption {
+    font-weight: 400;
+  }
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
+
+  li {
+  }
+}
+
+.social-link {
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  display: block;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.social-link--telegram {
+  background-image: url("../img/svg/ic-telegram.svg");
+}
+
+.social-link--insta {
+  background-image: url("../img/svg/ic-insta.svg");
+}
+
+.social-link--facebook {
+  background-image: url("../img/svg/ic-facebook.svg");
+}
+
+.social-link--whatsapp {
+  background-image: url("../img/svg/ic-whatsapp.svg");
 }

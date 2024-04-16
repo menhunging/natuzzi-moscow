@@ -1,15 +1,9 @@
-let observer = () => {
-  // функция для работы destroy Swiper
-  console.log("observer");
-};
-
 addEventListener("scroll", (event) => {
   currentScroll = $(window).scrollTop();
   // console.log("currentScroll", currentScroll);
 });
 
 addEventListener("wheel", (evt) => {
-  console.log(evt.deltaY);
   if (evt.deltaY < 0) {
     $("header").removeClass("hidden");
   } else {
@@ -315,6 +309,11 @@ $(document).ready(function () {
   }
 
   if ($(".stock-slider").length > 0) {
+    let observer = () => {
+      // функция для работы destroy Swiper
+      console.log("observer");
+    };
+
     if ($(window).width() >= 768) {
       initStockDesktop();
     } else {
@@ -535,6 +534,212 @@ $(document).ready(function () {
             .slideUp();
         }
       });
+    }
+  }
+
+  if ($(".catalog-links-invis").length > 0) {
+    let positionBlock = $(".catalog").offset().top;
+
+    let last_id;
+    let top_menu = $(".catalog-links-invis");
+    let menu_height = top_menu.outerHeight(true);
+    let menu_items = top_menu.find("a");
+    let menu_catalog = $(".catalog-menu").find("a");
+    let scroll_items = menu_items.map(function () {
+      let item = $($(this).attr("href"));
+      if (item.length) {
+        return item;
+      }
+    });
+
+    setActiveLink();
+    fixedBlockCatalog(positionBlock);
+
+    menu_items.click(function (e) {
+      handleClick(e, $(this));
+    });
+
+    menu_catalog.click(function (e) {
+      handleClick(e, $(this));
+    });
+
+    $(window).scroll(function () {
+      setActiveLink();
+      fixedBlockCatalog(positionBlock);
+    });
+
+    function fixedBlockCatalog() {
+      let scroll = $("html").scrollTop();
+
+      if (scroll > positionBlock) {
+        $(".catalog-links-invis").addClass("sticky");
+      } else {
+        $(".catalog-links-invis").removeClass("sticky");
+      }
+    }
+
+    function setActiveLink() {
+      let from_top = $(this).scrollTop() + menu_height;
+      let cur = scroll_items.map(function () {
+        if ($(this).offset().top < from_top) {
+          return this;
+        }
+      });
+
+      cur = cur[cur.length - 1];
+
+      let id = cur && cur.length ? cur[0].id : "";
+
+      if (last_id !== id) {
+        last_id = id;
+        menu_items
+          .parent()
+          .removeClass("active")
+          .end()
+          .filter("[href='#" + id + "']")
+          .parent()
+          .addClass("active");
+      }
+    }
+
+    function handleClick(e, self) {
+      e.preventDefault();
+
+      let href = self.attr("href"),
+        offset_top =
+          href === "#"
+            ? 0
+            : $(href).offset().top - $("header").outerHeight(true);
+      $("html, body").stop().animate(
+        {
+          scrollTop: offset_top,
+        },
+        300
+      );
+    }
+  }
+
+  if ($(".product-more").length > 0) {
+    $(".product-more__head").on("click", function () {
+      if ($(this).hasClass("opened")) {
+        $(this)
+          .removeClass("opened")
+          .next(".product-more__body")
+          .stop()
+          .slideUp();
+      } else {
+        $(this)
+          .addClass("opened")
+          .next(".product-more__body")
+          .stop()
+          .slideDown();
+      }
+    });
+  }
+
+  if ($(".slider-advantages").length > 0) {
+    let observer = () => {
+      // функция для работы destroy Swiper
+      console.log("observer");
+    };
+
+    if ($(window).width() >= 768) {
+      if ($(".slider-advantages").hasClass("init-mobile")) {
+        observer();
+      }
+    } else {
+      initAdvantagesMobile();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() >= 768) {
+        if ($(".slider-advantages").hasClass("init-mobile")) {
+          observer();
+        }
+      } else {
+        initAdvantagesMobile();
+      }
+    });
+
+    function initAdvantagesMobile() {
+      if ($(".slider-advantages").hasClass("init-mobile")) {
+        return false;
+      }
+
+      $(".slider-advantages").addClass("init-mobile");
+
+      const swiperStock = new Swiper(".slider-advantages", {
+        slidesPerView: 1,
+        initialSlide: 1,
+        centeredSlides: true,
+        // autoHeight: true,
+        spaceBetween: 16,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".advantages-section .arrows-controls__right",
+          prevEl: ".advantages-section .arrows-controls__left",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            initialSlide: 1,
+            centeredSlides: true,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      observer = () => {
+        $(".slider-advantages").removeClass("init-mobile");
+        swiperStock.destroy(true, true);
+      };
+    }
+  }
+
+  if ($(".slider-product-images").length > 0) {
+    const swiper = new Swiper(".slider-product-images", {
+      slidesPerView: 3,
+      spaceBetween: 24,
+      autoHeight: true,
+      centeredSlides: true,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: ".product-images .arrows-controls__right",
+        prevEl: ".product-images .arrows-controls__left",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          initialSlide: 1,
+          autoHeight: true,
+          centeredSlides: true,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 3,
+          autoHeight: true,
+          spaceBetween: 14,
+        },
+        1280: {
+          slidesPerView: 3,
+          autoHeight: true,
+          spaceBetween: 24,
+        },
+      },
+    });
+
+    setHeight();
+
+    $(window).on("resize", function () {
+      setHeight();
+    });
+
+    function setHeight() {
+      let height = $(
+        ".slider-product-images .swiper-slide-active .picture"
+      ).height();
+
+      $(".slider-product-images .swiper-wrapper").css("min-height", height);
     }
   }
 });

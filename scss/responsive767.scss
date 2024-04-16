@@ -307,8 +307,10 @@
     display: none;
   }
 
-  .stock-item__link {
-    margin-top: 8px;
+  .stock-item {
+    .circle-link {
+      margin-top: 8px;
+    }
   }
 
   .main-design-section {
@@ -484,4 +486,238 @@
     gap: 8px;
   }
 
+  .breadcrumbs {
+    padding: 16px 0;
+  }
+
+  .catalog-title .title-page {
+    margin-top: 16px;
+  }
+
+  .catalog-menu {
+    margin-top: 16px;
+    width: 100%;
+
+    a {
+      padding: 8px 16px;
+    }
+  }
+
+  .product-characteristic__left {
+    width: 100%;
+    max-width: 100%;
+    padding-top: calc(275 / 350 * 100%);
+  }
+
+  .product-characteristic__right {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  .product-characteristic__info {
+    gap: 4px;
+  }
+
+  .product-info__list {
+    .btn {
+      position: relative;
+      margin-top: 16px;
+      margin-left: auto;
+    }
+  }
+
+  .product-info__row:nth-child(2n) .product-info__list .btn {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .product-info__row + .product-info__row {
+    margin-top: 34px;
+  }
+
+  .product-info__delivery {
+    columns: initial;
+
+    p + p {
+      margin-top: 16px;
+    }
+  }
+
+  .product-info__documents .link-default {
+    width: 100%;
+  }
+
+  .product-more {
+    margin-top: 24px;
+  }
+
+  .product-action__content .caption {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-action__content {
+    width: 100%;
+    max-width: 100%;
+    transform: translateX(0);
+    padding: 0;
+    min-height: initial;
+    gap: 8px;
+
+    .status {
+      margin-top: 50px;
+    }
+  }
+
+  .product-action .picture.small {
+    left: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: calc(233 / 363 * 100%);
+    margin-top: 50px;
+  }
+
+  .product-action__picture {
+    left: 0;
+    top: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: initial;
+    height: auto;
+    padding-top: calc(233 / 363 * 100%);
+    margin-bottom: 16px;
+  }
+
+  .product-action__controls {
+    width: 100%;
+    position: relative;
+    left: 0;
+    margin-top: -105px;
+    margin-bottom: -35px;
+  }
+
+  .price-block {
+    max-width: 70%;
+  }
+
+  .main-designer__row {
+    margin-top: 20px;
+
+    .picture {
+      width: 100%;
+      min-height: initial;
+      padding-top: calc(345 / 380 * 100%);
+    }
+  }
+
+  .main-designer__content {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    .btn {
+    }
+  }
+
+  .main-designer__name {
+    font-size: 50px;
+    line-height: 50px;
+    max-width: 182px;
+  }
+
+  .slider-advantages {
+    margin-top: 16px;
+    width: calc(75% - 5.8px);
+  }
+
+  .advantages {
+    display: flex;
+    gap: initial;
+  }
+
+  .advantages-item {
+    gap: 8px;
+
+    .picture {
+      height: auto;
+      padding-top: calc(243 / 310 * 100%);
+    }
+  }
+
+  .advantages .advantages-item:nth-child(3) .picture {
+    position: relative;
+    top: auto;
+  }
+
+  .product-images {
+    .section__head {
+      display: none;
+    }
+  }
+
+  .slider-product-images {
+    width: calc(75% - 5.8px);
+    margin: auto;
+
+    .swiper-wrapper {
+      align-items: center;
+      height: auto !important;
+    }
+
+    .swiper-slide {
+      height: auto;
+      padding-top: calc(194 / 263 * 100%);
+      transition: padding 0.3s;
+    }
+
+    .swiper-slide-active {
+      padding-top: calc(290 / 263 * 100%);
+
+      .picture {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .picture {
+      right: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    .swiper-slide-next {
+      & + .swiper-slide .picture {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list .catalog-main-item .picture {
+    height: auto;
+    padding-top: calc(132 / 290 * 100%);
+  }
+
+  .product-section__controls {
+    position: relative;
+    margin-top: 16px;
+  }
+
+  .advantages-section {
+    .arrows-controls {
+      display: flex;
+    }
+  }
 }

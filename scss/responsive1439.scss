@@ -1,2 +1,13 @@
 @media (max-width: 1439px) {
+  .product-action__controls {
+    left: calc(100% - 10px);
+  }
+
+  .product-action .picture.small {
+    left: calc(100% - 10px);
+  }
+
+  .slider-product-images .swiper-slide-next + .swiper-slide .picture {
+    transform: translateX(calc(-50% - 98px));
+  }
 }

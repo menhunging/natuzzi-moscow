@@ -6,4 +6,20 @@
   .catalog-section__catalog {
     width: 65%;
   }
+
+  .product-action__controls {
+    left: calc(100% - 45px);
+  }
+
+  .product-action .picture.small {
+    left: calc(100% - 45px);
+  }
+
+  .slider-product-images .swiper-slide-next + .swiper-slide .picture {
+    transform: translateX(calc(-50% - 62px));
+  }
+
+  .slider-product-images .picture {
+    right: calc(100% - 111px);
+  }
 }

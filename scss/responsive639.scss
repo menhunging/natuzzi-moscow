@@ -1,2 +1,7 @@
 @media (max-width: 639px) {
+  .catalog-list {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+    gap: 16px;
+  }
 }

@@ -233,6 +233,7 @@ input {
   flex-wrap: wrap;
   min-height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 .site-wrapper footer,
 .site-wrapper .footer {

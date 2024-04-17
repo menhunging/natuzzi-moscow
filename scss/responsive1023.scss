@@ -22,4 +22,8 @@
   .slider-product-images .picture {
     right: calc(100% - 111px);
   }
+
+  .blog-list .blog-item:first-child .picture {
+    padding-top: calc(540 / 534 * 100%);
+  }
 }

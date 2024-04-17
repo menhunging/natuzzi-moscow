@@ -742,6 +742,106 @@ $(document).ready(function () {
       $(".slider-product-images .swiper-wrapper").css("min-height", height);
     }
   }
+
+  if ($(".products-slider").length > 0) {
+    let observer = () => {
+      // функция для работы destroy Swiper
+      console.log("observer");
+    };
+
+    if ($(window).width() < 768) {
+      initProductSlider();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() < 768) {
+        initProductSlider();
+      } else {
+        observer();
+      }
+    });
+
+    function initProductSlider() {
+      if ($(".products-slider").hasClass("init")) {
+        return false;
+      }
+
+      $(".products-slider").addClass("init");
+
+      const swiperProducts = new Swiper(".products-slider", {
+        slidesPerView: 1.25,
+        initialSlide: 0,
+        autoHeight: true,
+        spaceBetween: 16,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".product-section .arrows-controls__right",
+          prevEl: ".product-section .arrows-controls__left",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.25,
+            initialSlide: 0,
+            autoHeight: true,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      observer = () => {
+        $(".products-slider").removeClass("init");
+        swiperProducts.destroy(true, true);
+      };
+    }
+  }
+
+  if ($(".blog-media__slider").length > 0) {
+    let observer = () => {
+      // функция для работы destroy Swiper
+      console.log("observer");
+    };
+
+    if ($(window).width() < 768) {
+      initBlogMediaSlider();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() < 768) {
+        initBlogMediaSlider();
+      } else {
+        observer();
+      }
+    });
+
+    function initBlogMediaSlider() {
+      if ($(".blog-media__slider").hasClass("init")) {
+        return false;
+      }
+
+      $(".blog-media__slider").addClass("init");
+
+      const swiperBlogMedia = new Swiper(".blog-media__slider", {
+        slidesPerView: 1.25,
+        initialSlide: 0,
+        autoHeight: true,
+        spaceBetween: 16,
+        watchSlidesProgress: true,
+        breakpoints: {
+          0: {
+            slidesPerView: 1.25,
+            initialSlide: 0,
+            autoHeight: true,
+            spaceBetween: 16,
+          },
+        },
+      });
+
+      observer = () => {
+        $(".blog-media__slider").removeClass("init");
+        swiperBlogMedia.destroy(true, true);
+      };
+    }
+  }
 });
 
 $(window).on("resize", function () {});
@@ -753,32 +853,42 @@ $(window).on("load", function () {
   }
 
   function ymapsLoad() {
-    var script = document.createElement("script");
+    let script = document.createElement("script");
     script.src =
-      "https://api-maps.yandex.ru/2.1/?apikey=0cec76e1-1847-46ed-a96a-c84c0917f2ad&lang=ru_RU";
+      "https://api-maps.yandex.ru/2.1/?apikey=0cec76e1-1847-46ed-a96a-c84c0917f2ad&lang=ru_RU&amp;scroll=false";
     document.getElementsByTagName("head")[0].appendChild(script);
   }
 
   function init() {
-    var myMap = new ymaps.Map("map", {
+    let myMap = new ymaps.Map("map", {
       center: [55.744756354739636, 37.57666889814756],
-      zoom: 13,
-      controls: [],
+      zoom: 10,
+      controls: ["zoomControl"],
     });
 
-    myMap.controls.remove("searchControl");
+    myMap.behaviors.disable("scrollZoom");
+    // myMap.behaviors.disable("drag");
 
-    var myPlacemark = new ymaps.Placemark(
+    let location = {
+      iconLayout: "default#image",
+      iconImageHref: "/img/svg/location.svg",
+      iconImageSize: [80, 80],
+      iconImageOffset: [-40, -40],
+    };
+
+    let placemark1 = new ymaps.Placemark(
       [55.744756354739636, 37.57666889814756],
       {},
-      {
-        iconLayout: "default#image",
-        iconImageHref: "/img/svg/location.svg",
-        iconImageSize: [80, 80],
-        iconImageOffset: [-40, -40],
-      }
+      location
     );
 
-    myMap.geoObjects.add(myPlacemark);
+    let placemark2 = new ymaps.Placemark([55.763194, 37.508607], {}, location);
+    let placemark3 = new ymaps.Placemark([55.886645, 37.436625], {}, location);
+    let placemark4 = new ymaps.Placemark([55.672428, 37.582709], {}, location);
+
+    myMap.geoObjects.add(placemark1);
+    myMap.geoObjects.add(placemark2);
+    myMap.geoObjects.add(placemark3);
+    myMap.geoObjects.add(placemark4);
   }
 });

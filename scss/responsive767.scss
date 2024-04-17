@@ -491,10 +491,19 @@
   }
 
   .catalog-title .title-page {
-    margin-top: 16px;
+    padding-top: 16px;
   }
 
   .catalog-menu {
+    margin-top: 16px;
+    width: 100%;
+
+    a {
+      padding: 8px 16px;
+    }
+  }
+
+  .menu-links {
     margin-top: 16px;
     width: 100%;
 
@@ -719,5 +728,116 @@
     .arrows-controls {
       display: flex;
     }
+  }
+
+  .blog-list {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-list .blog-item {
+    &:first-child {
+      grid-column: initial;
+      grid-row: initial;
+
+      .picture {
+        padding-top: calc(194 / 358 * 100%);
+      }
+    }
+  }
+
+  .blog-item {
+    .picture {
+      padding-top: calc(194 / 358 * 100%);
+    }
+  }
+
+  .blog-item__content {
+    max-width: calc(70% - 22px);
+    padding-right: 10px;
+  }
+
+  .blog-item {
+    justify-content: flex-start;
+
+    .circle-link {
+      margin-left: 0;
+    }
+  }
+
+  .pagination {
+    justify-content: flex-start;
+    min-height: 110px;
+    margin-top: 16px;
+  }
+
+  .products-slider {
+    overflow: visible;
+  }
+
+  .product-section .arrows-controls {
+    display: flex;
+  }
+
+  .product-list.swiper-wrapper {
+    display: flex;
+    gap: 0;
+  }
+
+  .blog-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .blog-col .picture {
+    height: auto;
+    min-height: initial;
+    padding-top: calc(193 / 358 * 100%);
+  }
+
+  .text-block__number li + li {
+    margin-top: 16px;
+  }
+
+  .blog {
+    .product-section {
+      .btn {
+        display: flex;
+        margin-left: auto;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .blog-media__slider {
+    .blog-media__item {
+      width: 100%;
+      height: auto;
+
+      .picture {
+        height: auto;
+        padding-top: calc(232 / 352 * 100%);
+      }
+    }
+
+    .blog-media {
+      display: flex;
+      gap: 0;
+      flex-wrap: nowrap;
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .saloins-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .saloins-item__body {
+    padding: 8px 20px;
   }
 }

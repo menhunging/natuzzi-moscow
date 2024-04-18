@@ -840,4 +840,83 @@
   .saloins-item__body {
     padding: 8px 20px;
   }
+
+  .catalog-products__list {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    gap: 16px;
+  }
+
+  .filter-catalog {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding-bottom: 16px;
+
+    &.sticky {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .filter-row-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .filter-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: right 0.3s;
+    width: 290px;
+    z-index: 11;
+    background-color: $colorWhite;
+    padding: 20px 16px;
+    max-height: 100vh;
+    overflow: auto;
+
+    &.opened {
+      right: 0;
+    }
+  }
+
+  .btn-filter {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .filter-settings li:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-row + .filter-row {
+    margin-top: 18px;
+  }
+
+  .filter-row__body {
+    padding: 9px 16px 0;
+  }
+
+  .stock-page {
+    .stock-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .stock-item {
+      .picture {
+        padding-top: calc(242 / 358 * 100%);
+      }
+    }
+  }
 }

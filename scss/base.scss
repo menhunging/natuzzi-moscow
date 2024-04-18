@@ -353,8 +353,8 @@ input {
 .modal__close {
   @include transition(all 0.3s);
   position: absolute;
-  right: 24px;
-  top: 24px;
+  right: 100px;
+  top: 27px;
   display: flex;
   z-index: 10;
   font-weight: 400;
@@ -394,24 +394,18 @@ input {
 }
 
 .modal__inner {
-  background-color: #fbf9f8;
+  background-color: $colorWhite;
   margin: 0 auto;
   position: relative;
-  background-image: url("../img/logo-big.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border-radius: 32px;
+  border-radius: 0;
 
-  .caption {
-    font-size: 60px;
-    line-height: 60px;
-    left: -15px;
-    letter-spacing: -0.1em;
-  }
-
-  .caption__desc {
-    margin-top: 20px;
+  @include before{
+    width: 100%;
+    height: 64px;
+    background-color: $colorYellow;
   }
 }
 
@@ -612,6 +606,22 @@ video {
   &::-webkit-media-controls {
     opacity: 0;
     pointer-events: none;
+  }
+}
+
+.filter-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: $colorBlack;
+  opacity: 0;
+  z-index: 10;
+  transition: all 0.3s;
+
+  &.visible {
+    opacity: 0.35;
   }
 }
 

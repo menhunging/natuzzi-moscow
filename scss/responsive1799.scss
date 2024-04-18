@@ -1,5 +1,13 @@
+@media (max-width: 1899px) {
+  .catalog-products__list {
+    width: calc(100% - 236px);
+    margin-left: auto;
+  }
+}
+
 @media (max-width: 1799px) {
   .catalog-links-invis {
     display: none;
   }
 }
+

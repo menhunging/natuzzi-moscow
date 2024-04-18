@@ -10,4 +10,8 @@
   .slider-product-images .swiper-slide-next + .swiper-slide .picture {
     transform: translateX(calc(-50% - 98px));
   }
+
+  .catalog-products__list {
+    width: calc(100% - 280px);
+  }
 }

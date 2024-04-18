@@ -232,6 +232,9 @@
 
   .catalog-main-item__price {
     margin-top: 4px;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .catalog-section__content .catalog-main-item {
@@ -837,5 +840,48 @@
 
   .map {
     height: 432px;
+  }
+
+  .catalog-products__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+    width: 100%;
+    padding-left: 140px;
+  }
+
+  .filter-catalog {
+    width: 208px;
+    left: 16px;
+  }
+
+  .filter-row__body {
+    padding: 8px 16px 0;
+  }
+
+  .filter-row + .filter-row {
+    margin-top: 18px;
+  }
+
+  .filter-settings li:last-child {
+    margin-bottom: 16px;
+  }
+
+  .stock-page .stock-item .picture {
+    padding-top: calc(242 / 404 * 100%);
+  }
+
+  .stock-circle {
+    width: 170px;
+    height: 170px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .stock-page .stock-list {
+    height: auto;
+  }
+
+  .stock-page .stock-item {
+    gap: 12px;
   }
 }

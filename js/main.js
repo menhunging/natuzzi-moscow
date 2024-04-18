@@ -842,6 +842,77 @@ $(document).ready(function () {
       };
     }
   }
+
+  if ($(".filter-catalog").length > 0) {
+    $(".filter-row__head").on("click", function () {
+      let head = $(this);
+      let body = $(this).parents(".filter-row").find(".filter-row__body");
+
+      head.hasClass("close") ? filterClose(head, body) : filterOpen(head, body);
+    });
+
+    $(".btn-filter").on("click", function () {
+      let filterContent = $(".filter-content");
+      toggleFilterMobile(filterContent);
+    });
+
+    $(".filter-content__close").on("click", function () {
+      let filterContent = $(".filter-content");
+      toggleFilterMobile(filterContent);
+    });
+
+    function filterOpen(head, body) {
+      head.addClass("close");
+      body.stop().slideUp();
+    }
+    function filterClose(head, body) {
+      head.removeClass("close");
+      body.stop().slideDown();
+    }
+
+    function toggleFilterMobile(filterContent) {
+      if (filterContent.hasClass("opened")) {
+        filterContent.removeClass("opened");
+        $(".filter-overlay").remove();
+      } else {
+        filterContent.addClass("opened");
+
+        $("body").append(`<div class="filter-overlay"></div>`);
+
+        $(".filter-overlay").on("click", function () {
+          filterContent.removeClass("opened");
+          $(".filter-overlay").remove();
+        });
+
+        setTimeout(function tick() {
+          $(".filter-overlay").addClass("visible");
+        }, 200);
+      }
+    }
+  }
+
+  if ($(".catalog-products").length > 0) {
+    let positionBlock = $(".catalog-products").offset().top;
+
+    fixedFilter(positionBlock);
+
+    $(window).scroll(function () {
+      fixedFilter(positionBlock);
+    });
+
+    function fixedFilter() {
+      let scroll = $("html").scrollTop();
+
+      if (scroll > positionBlock) {
+        $(".filter-catalog").addClass("sticky");
+      } else {
+        $(".filter-catalog").removeClass("sticky");
+      }
+    }
+  }
+
+  if ($(".btn-filter").length > 0) {
+  }
 });
 
 $(window).on("resize", function () {});

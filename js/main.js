@@ -910,9 +910,6 @@ $(document).ready(function () {
       }
     }
   }
-
-  if ($(".btn-filter").length > 0) {
-  }
 });
 
 $(window).on("resize", function () {});

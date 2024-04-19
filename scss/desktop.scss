@@ -572,6 +572,7 @@ section {
 }
 
 .stock-item__content {
+  position: relative;
   width: calc(50% - 8px);
   display: flex;
   flex-direction: column;
@@ -2362,6 +2363,7 @@ section {
 .stock-page {
   .stock-list {
     height: auto;
+    align-items: flex-start;
   }
 
   .stock-item {
@@ -2375,6 +2377,12 @@ section {
     .picture {
       padding-top: calc(389 / 648 * 100%);
       height: auto;
+    }
+
+    &.opened {
+      .circle-link {
+        transform: rotate(90deg);
+      }
     }
   }
 
@@ -2440,4 +2448,11 @@ section {
     border-bottom: solid 1px $colorBorder;
     display: block;
   }
+}
+
+.stock-item__mobile {
+  display: none;
+  padding-top: 8px;
+  border-top: solid 1px $colorBorder;
+  margin-top: 12px;
 }

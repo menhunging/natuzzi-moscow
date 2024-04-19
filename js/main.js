@@ -106,7 +106,6 @@ $(document).ready(function () {
 
     $("[data-micromodal-close]").map(function () {
       $(this).click((e) => {
-        //        e.preventDefault();
         if ($(this).attr("data-modal")) {
           setTimeout(() => {
             $("body").addClass("modal-open");
@@ -908,6 +907,50 @@ $(document).ready(function () {
       } else {
         $(".filter-catalog").removeClass("sticky");
       }
+    }
+  }
+
+  if ($(".stock-page").length > 0) {
+    if ($(window).width() > 1280) {
+      MicroModal.init({
+        openTrigger: "data-modal-stock",
+        disableScroll: true,
+        awaitOpenAnimation: true,
+        awaitCloseAnimation: true,
+
+        onShow: () => {
+          $("body").addClass("modal-open");
+        },
+
+        onClose: () => {
+          $("body").removeClass("modal-open");
+        },
+      });
+
+      $("[data-modal-stock]").map(function () {
+        $(this).click((e) => {
+          e.preventDefault();
+          $("body").addClass("modal-open");
+        });
+      });
+    } else {
+      $("[data-modal-stock]").map(function () {
+        let self = $(this);
+        let parents = self.parents(".stock-item");
+        let blockMobile = parents.find(".stock-item__mobile");
+
+        self.click((e) => {
+          e.preventDefault();
+
+          if (blockMobile.hasClass("opened")) {
+            parents.removeClass("opened");
+            blockMobile.removeClass("opened").stop().slideUp();
+          } else {
+            parents.addClass("opened");
+            blockMobile.addClass("opened").stop().slideDown();
+          }
+        });
+      });
     }
   }
 });

@@ -919,4 +919,22 @@
       }
     }
   }
+
+  .modal-stock {
+    padding: 43px 10px;
+    gap: 16px;
+  }
+
+  .modal-stock .caption {
+    padding: 8px 0;
+  }
+
+  .modal__close {
+    right: 20px;
+    top: 17px;
+  }
+
+  #modal-stock .modal__container {
+    padding: 0 10px;
+  }
 }

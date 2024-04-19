@@ -938,4 +938,28 @@
     height: 217px;
     top: 48px;
   }
+
+  .designer-page .blog-row {
+    grid-template-columns: 50% 40%;
+  }
+
+  .designer-page .blog-col .picture {
+    min-height: 536px;
+  }
+
+  .designer-page__head .blog-col .caption--h1 {
+    max-width: 80%;
+  }
+
+  .designer-page__text {
+    padding: 40px 0;
+  }
+
+  .designer-page__head {
+    margin-top: 20px;
+  }
+
+  .designer-page__head .blog-row::before {
+    top: -30px;
+  }
 }

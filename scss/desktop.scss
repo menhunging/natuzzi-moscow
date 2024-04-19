@@ -2555,3 +2555,85 @@ section {
 .designers-item__count {
   display: block;
 }
+
+.designer-page__head {
+  background-color: $colorWhite !important;
+  padding-top: 0;
+  margin-top: 20px;
+
+  .blog-row {
+    position: relative;
+
+    @include before {
+      top: -40px;
+      background-color: $colorBorder;
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  .blog-col {
+    .caption--h1 {
+      max-width: 100%;
+      margin-left: auto;
+      text-align: right;
+    }
+  }
+}
+
+.designer-page {
+  padding: 0;
+
+  .blog-row {
+    justify-content: space-between;
+    grid-template-columns: 649px 550px;
+  }
+
+  .blog-line:nth-child(2n) {
+    background-color: $colorWhite;
+  }
+
+  .blog-line:nth-child(2n-1) {
+    background-color: $colorYellow;
+  }
+
+  .blog-col {
+    .picture {
+      min-height: 647px;
+    }
+  }
+
+  .blog-media {
+    flex-direction: row-reverse;
+    background-color: transparent;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+
+  .products-slider {
+    .swiper-slide {
+      &:last-child {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .btn {
+      opacity: 1;
+      display: flex;
+      margin-left: auto;
+      margin-top: -160px;
+      z-index: 5;
+    }
+  }
+}
+
+.designer-page__text {
+  .caption {
+    max-width: 985px;
+    width: 100%;
+  }
+}

@@ -893,4 +893,49 @@
   .modal__close {
     right: 30px;
   }
+
+  .projects-list .slider-picture .picture {
+    height: 243px;
+  }
+
+  .projects-list .slider-default__text p {
+    -webkit-line-clamp: 4;
+  }
+
+  .projects-list {
+    gap: 20px 0;
+  }
+
+  .projects-list .projects-item.full {
+    width: calc(60% + 12px);
+  }
+
+  .projects-list .projects-item {
+    width: calc(40% - 28px);
+  }
+
+  .designers-list {
+    gap: 80px 16px;
+  }
+
+  .designers-item {
+    .picture {
+      height: 264px;
+    }
+  }
+
+  .designers-item__name {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .designers-list::after {
+    height: 217px;
+    bottom: 344px;
+  }
+
+  .designers-list::before {
+    height: 217px;
+    top: 48px;
+  }
 }

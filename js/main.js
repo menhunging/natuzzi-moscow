@@ -953,6 +953,28 @@ $(document).ready(function () {
       });
     }
   }
+
+  if ($(".projects-list").length > 0) {
+    let isActive = false;
+
+    $(".projects-list .projects-item").map(function (index, item) {
+      let self = $(this);
+      let isFullPrev = self.prev().hasClass("full");
+      let even = (index + 1) % 2 === 0;
+      let odd = (index + 1) % 2 !== 0;
+
+      if (!isActive) {
+        self.addClass("full");
+        isActive = true;
+      } else if (isActive && isFullPrev && even) {
+        return false;
+      } else if (isActive && !isFullPrev && odd) {
+        isActive = false;
+      } else if (isActive && isFullPrev && odd) {
+        self.addClass("full");
+      }
+    });
+  }
 });
 
 $(window).on("resize", function () {});

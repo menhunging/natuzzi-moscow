@@ -975,6 +975,162 @@ $(document).ready(function () {
       }
     });
   }
+
+  if ($(".materials-sections").length > 0) {
+    let captions = $(".materials-line:nth-child(2n)").find(".caption");
+    let parents = captions
+      .parents(".materials-row")
+      .find(".materials-col:nth-child(2)");
+
+    let arrayDestroy = [];
+
+    if ($(window).width() < 767) {
+      materialsMobile();
+    } else {
+      materialsDesktop();
+    }
+
+    $(window).on("resize", function () {
+      if ($(window).width() < 767) {
+        materialsMobile();
+      } else {
+        materialsDesktop();
+      }
+    });
+
+    function materialsDesktop() {
+      if ($(".materials-sections").hasClass("init-desktop")) {
+        return false;
+      }
+
+      $(".materials-sections").removeClass("init-mobile");
+      $(".materials-sections").addClass("init-desktop");
+
+      arrayDestroy.map(function (item, index) {
+        let func = item;
+        func();
+      });
+
+      captions.removeClass("arrow");
+      parents.removeClass("close");
+
+      arrayDestroy = [];
+
+      captions.off("click");
+    }
+
+    function materialsMobile() {
+      if ($(".materials-sections").hasClass("init-mobile")) {
+        return false;
+      }
+
+      $(".materials-sections").removeClass("init-desktop");
+      $(".materials-sections").addClass("init-mobile");
+
+      captions.addClass("arrow");
+      parents.addClass("close");
+
+      initMobileSlider();
+
+      captions.on("click", function () {
+        $(this).toggleClass("opened");
+        $(this)
+          .parents(".materials-row")
+          .find(".materials-col:nth-child(2)")
+          .stop()
+          .slideToggle();
+      });
+    }
+
+    function initMobileSlider() {
+      const sliders = document.querySelectorAll(".material-list");
+      let mySwipers = [];
+
+      function sliderinit() {
+        sliders.forEach((slider, index) => {
+          if (!slider.swiper) {
+            mySwipers[index] = new Swiper(slider, {
+              slidesPerView: 2.6,
+              spaceBetween: 24,
+              autoHeight: true,
+              watchSlidesProgress: true,
+              on: {
+                init: function (swiper) {},
+                slideChange: function (swiper) {},
+              },
+              breakpoints: {
+                0: {
+                  slidesPerView: 2.6,
+                  spaceBetween: 24,
+                },
+                480: {
+                  slidesPerView: 3.6,
+                  spaceBetween: 24,
+                },
+              },
+            });
+
+            arrayDestroy.push(() => {
+              mySwipers[index].destroy(true, true);
+            });
+          } else {
+            return;
+          }
+        });
+      }
+
+      sliders.length && sliderinit();
+    }
+  }
+
+  if ($(".partners-section").length > 0) {
+    if ($(window).width() > 1280) {
+      MicroModal.init({
+        openTrigger: "data-modal-partners",
+        disableScroll: true,
+        awaitOpenAnimation: true,
+        awaitCloseAnimation: true,
+
+        onShow: () => {
+          $("body").addClass("modal-open");
+        },
+
+        onClose: () => {
+          $("body").removeClass("modal-open");
+        },
+      });
+
+      $("[data-modal-partners]").map(function () {
+        $(this).click((e) => {
+          e.preventDefault();
+          $("body").addClass("modal-open");
+        });
+      });
+    } else {
+      $("[data-modal-partners]").map(function () {
+        let self = $(this);
+        let parents = self.parents(".parents-item");
+        let blockMobile = parents.find(".parents-item__mobile");
+
+        self.click((e) => {
+          e.preventDefault();
+
+          if (blockMobile.hasClass("opened")) {
+            parents.removeClass("opened");
+            blockMobile.removeClass("opened").stop().slideUp();
+          } else {
+            parents.addClass("opened");
+            blockMobile.addClass("opened").stop().slideDown();
+          }
+        });
+      });
+    }
+  }
+
+  if ($(".catalog-title").length > 0) {
+    !$(".catalog-title").hasClass("catalog-title--white") &&
+      $("header").addClass("header--yellow");
+  }
 });
 
 $(window).on("resize", function () {});

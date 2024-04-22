@@ -1009,7 +1009,145 @@
     top: -26px;
   }
 
-  .designer-page .blog-media__slider .blog-media{
+  .designer-page .blog-media__slider .blog-media {
     flex-direction: row;
+  }
+
+  .materials-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .material-list {
+    left: -15px;
+    width: calc(100% + 30px);
+    padding: 0 15px;
+    margin-top: 16px;
+  }
+
+  .materials-col {
+    width: 100%;
+
+    &.close {
+      display: none;
+    }
+  }
+
+  .material-list .swiper-wrapper {
+    display: flex;
+    gap: 0;
+  }
+
+  .delivery-row {
+    padding: 16px 0;
+    gap: 16px 0;
+  }
+
+  .delivery-col {
+    width: 100%;
+  }
+
+  .delivery-line {
+    &:last-child {
+      .delivery-col {
+        width: 50%;
+
+        .btn {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  .parents-list {
+    grid-template-columns: 1fr;
+  }
+
+  .parents-item__media .picture {
+    padding-top: calc(145 / 358 * 100%);
+  }
+
+  .parents-item__text p {
+    display: block;
+    -webkit-line-clamp: initial;
+  }
+
+  .modal-partners .partners-logo {
+    left: 30px;
+    width: 140px;
+    height: 30px;
+    top: 25px;
+  }
+
+  #modal-partners .modal__inner::before {
+    height: 84px;
+  }
+
+  #modal-partners .modal__close {
+    top: 33px;
+  }
+
+  .modal-partners {
+    padding: 100px 20px 20px;
+  }
+
+  .model-item__col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 0;
+
+    .link-download {
+      margin-left: 0;
+    }
+  }
+
+  .model-item__row {
+    margin-top: 16px;
+  }
+
+  .model-item + .model-item {
+    margin-top: 16px;
+  }
+
+  .not-page {
+    svg {
+      width: 50%;
+    }
+  }
+
+  .favorites-section {
+    .catalog-products__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-manager__form .input-list {
+    width: 60%;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .form-manager__form .input-list input {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .form-manager__form .desc {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 16px;
+  }
+
+  .form-manager__form {
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+
+  .btn-add-favorite {
+    right: 16px;
+    bottom: 16px;
   }
 }

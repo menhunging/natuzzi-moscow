@@ -962,4 +962,105 @@
   .designer-page__head .blog-row::before {
     top: -30px;
   }
+
+  .materials-row {
+    padding: 20px 0;
+  }
+
+  .material-list {
+    margin-top: 20px;
+  }
+
+  .material-item__name {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .material-list .swiper-wrapper {
+    gap: 20px 16px;
+  }
+
+  .delivery-row {
+    padding: 20px 0;
+  }
+
+  .partners-logo {
+    width: 100px;
+    height: 22px;
+  }
+
+  .parents-item__content {
+    align-items: center;
+    margin-top: 5px;
+    gap: 5px;
+  }
+
+  .parents-list {
+    gap: 16px;
+  }
+
+  .parents-item__text p {
+    -webkit-line-clamp: 5;
+  }
+
+  .parents-item {
+    .circle-link {
+      transition: all 0.3s;
+      transform: rotate(0) !important;
+      transition-duration: 0.3s !important;
+      transition-delay: 0s !important;
+    }
+
+    &.opened {
+      .circle-link {
+        transform: rotate(90deg) !important;
+        transition-duration: 0.3s !important;
+        transition-delay: 0s !important;
+      }
+    }
+  }
+
+  .modal-partners {
+    padding: 130px 40px 40px;
+  }
+
+  .modal-partners .partners-logo {
+    left: 30px;
+  }
+
+  .model-item__row {
+    margin-top: 20px;
+  }
+
+  .model-item + .model-item {
+    margin-top: 20px;
+  }
+
+  .form-manager__form .desc {
+    margin-top: 0;
+  }
+
+  .form-manager {
+    .form-manager__text {
+      margin-top: 20px;
+    }
+  }
+
+  #modal-call,
+  #modal-cooperation {
+    .modal__close {
+      right: 30px;
+      top: 30px;
+    }
+  }
+  #modal-call,
+  #modal-cooperation .modal__container {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .btn-add-favorite {
+    right: 20px;
+    bottom: 20px;
+  }
 }

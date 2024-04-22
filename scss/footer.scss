@@ -1,6 +1,8 @@
 .footer {
   background-color: $colorDark;
   color: $colorWhite;
+  position: relative;
+  z-index: 9;
 
   .form {
   }

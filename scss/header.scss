@@ -5,7 +5,7 @@
   width: 100%;
   background-color: $colorWhite;
   z-index: 10;
-  transition: transform 0.5s;
+  transition: transform 0.5s, background-color 0.3s;
 
   &-inner {
     display: flex;
@@ -27,6 +27,10 @@
 
   &.hidden {
     transform: translateY(-100%);
+  }
+
+  &--yellow {
+    background-color: $colorYellow;
   }
 }
 

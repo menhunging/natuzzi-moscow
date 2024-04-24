@@ -758,17 +758,17 @@
 
   .blog-row {
     gap: 20px;
-  }
-
-  .blog-col {
-    gap: 20px;
 
     .picture {
       min-height: 336px;
     }
   }
 
-  .text-block__number {
+  .blog-col {
+    gap: 20px;
+  }
+
+  ol {
     li {
       font-size: 14px;
       line-height: 16px;

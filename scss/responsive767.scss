@@ -788,15 +788,23 @@
   .blog-row {
     grid-template-columns: 1fr;
     gap: 16px;
+
+    .picture {
+      height: auto;
+      min-height: initial;
+      padding-top: calc(193 / 358 * 100%);
+    }
   }
 
-  .blog-col .picture {
-    height: auto;
-    min-height: initial;
-    padding-top: calc(193 / 358 * 100%);
+  .blog-line .text-block {
+    width: 100%;
   }
 
-  .text-block__number li + li {
+  .blog-row > * {
+    width: 100%;
+  }
+
+  ol li + li {
     margin-top: 16px;
   }
 
@@ -817,6 +825,7 @@
 
       .picture {
         height: auto;
+        min-height: initial;
         padding-top: calc(232 / 352 * 100%);
       }
     }

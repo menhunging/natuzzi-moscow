@@ -1865,36 +1865,23 @@ section {
   &:nth-child(2n) {
     background-color: $colorYellow;
   }
-}
 
-.blog-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
+  .text-block {
+    width: calc(50% - 15px);
 
-.blog-col {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+    p + p {
+      margin-top: 20px;
+    }
+  }
 
   .picture {
-    width: 100%;
     height: 100%;
     min-height: 602px;
-    flex: 1;
     @include invisLink;
+    margin-left: auto;
   }
-}
 
-.text-block {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  ul:not(.text-block__number) {
-    margin-top: 20px;
+  ul {
     padding-left: 10px;
 
     li {
@@ -1917,9 +1904,46 @@ section {
   }
 }
 
-.text-block__number {
+.blog-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+
+  & > * {
+    width: calc(50% - 15px);
+  }
+}
+
+.blog-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .text-block {
+    width: 100%;
+
+    ul {
+      margin-top: 20px;
+    }
+  }
+
+  .picture {
+    width: 100%;
+  }
+}
+
+.text-block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ol {
   counter-reset: item;
   margin-top: auto;
+  order: 2;
 
   li {
     position: relative;

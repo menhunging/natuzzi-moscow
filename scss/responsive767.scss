@@ -1159,4 +1159,110 @@
     right: 16px;
     bottom: 16px;
   }
+
+  .about-head {
+    flex-direction: column;
+
+    .picture {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: initial;
+      padding-top: calc(340 / 358 * 100%);
+      max-width: initial;
+      max-height: initial;
+      margin-top: 16px;
+    }
+  }
+
+  .about-head__col {
+    min-height: initial;
+
+    p {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .quote {
+    width: 100%;
+    max-width: 100%;
+    padding: 21px 33px;
+    margin-top: 16px;
+
+    &::before {
+      left: 20px;
+    }
+
+    &::after {
+      right: 20px;
+    }
+  }
+
+  .about-page .advantages {
+    padding-bottom: 0;
+  }
+
+  .about-item {
+    &:nth-child(2n) {
+      .picture {
+        order: 1;
+
+        &:last-child {
+          order: 0;
+        }
+      }
+    }
+
+    .caption {
+      max-width: 100%;
+      width: 100%;
+      text-align: left;
+    }
+
+    p {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .picture {
+      width: 60%;
+      height: auto;
+      margin: 0;
+      padding-top: calc(262 / 358 * 100%);
+
+      &:last-child {
+        width: 100%;
+        height: auto;
+        padding-top: calc(228 / 358 * 100%);
+      }
+    }
+  }
+
+  .about-item__inner {
+    gap: 16px;
+  }
+
+  .about-item:nth-child(2n) .about-item__inner .caption {
+    text-align: left;
+  }
+
+  .about-files__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-files__list {
+    order: 3;
+    gap: 20px 6px;
+  }
+
+  .about-files__item .picture {
+    height: 136px;
+  }
+
+  .about-files__info {
+    gap: 3px;
+  }
 }

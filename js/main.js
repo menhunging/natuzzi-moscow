@@ -1150,6 +1150,12 @@ $(document).ready(function () {
       $(document).off("click");
     });
   }
+
+  if ($(".video-section video").length > 0) {
+    $(".video-section video").on("click", function () {
+      openFullVideo($(this)[0]);
+    });
+  }
 });
 
 $(window).on("resize", function () {});
@@ -1200,3 +1206,26 @@ $(window).on("load", function () {
     myMap.geoObjects.add(placemark4);
   }
 });
+
+$(document).on("fullscreenchange", function (event) {
+  if (document.fullscreenElement) {
+    $("video").addClass("opened");
+    event.target.setAttribute("controls", true);
+  } else {
+    $("video").removeClass("opened");
+    $("video").trigger("play");
+    event.target.removeAttribute("controls");
+  }
+});
+
+function openFullVideo(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+}

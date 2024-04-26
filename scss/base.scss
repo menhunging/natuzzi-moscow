@@ -607,6 +607,12 @@ video {
     opacity: 0;
     pointer-events: none;
   }
+  &.opened {
+    &::-webkit-media-controls {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
 }
 
 .filter-overlay {

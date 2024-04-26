@@ -498,7 +498,11 @@
 
   .catalog-menu {
     margin-top: 16px;
-    width: 100%;
+    width: calc(100% + 60px);
+    max-width: initial;
+    padding: 0 15px;
+    left: -30px;
+    position: relative;
 
     a {
       padding: 8px 16px;
@@ -1272,5 +1276,9 @@
 
   .search-block input {
     height: 45px;
+  }
+
+  .footer-menu__col ul {
+    text-align: center;
   }
 }

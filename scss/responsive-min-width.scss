@@ -2,6 +2,12 @@
   .menu {
     display: block !important;
   }
+}
+
+@media (min-width: 768px) {
+  .materials-col {
+    display: block !important;
+  }
 
   .footer-menu__col {
     &:nth-child(2) {
@@ -13,11 +19,5 @@
     ul {
       display: block !important;
     }
-  }
-}
-
-@media (min-width: 768px) {
-  .materials-col {
-    display: block !important;
   }
 }

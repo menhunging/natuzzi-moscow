@@ -3335,3 +3335,140 @@ ol {
   background-position: left center;
   background-repeat: no-repeat;
 }
+
+.search-block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $colorWhite;
+  padding: 11px 0;
+  z-index: 11;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.opened {
+    transform: translateY(0);
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-bottom: solid 1px $colorBorder;
+  }
+}
+
+.btn-search__close {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11 1L1 11M1 1L11 11' stroke='%2335291E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+}
+
+.search-result-page {
+  .catalog-products__list {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(2px) contrast(60%);
+  backdrop-filter: blur(2px) contrast(60%);
+  transition: all 0.3s;
+
+  @include before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $colorWhite;
+    opacity: 0.33;
+    -webkit-backdrop-filter: blur(2px) contrast(60%);
+    backdrop-filter: blur(2px) contrast(60%);
+  }
+}
+
+.spinner {
+  border: 3px solid transparent;
+  border-top: 3px solid $colorDark;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  &--one {
+    width: 100px;
+    height: 100px;
+    animation: spin 1s infinite linear;
+    border-top: 3px solid $colorDark;
+    border-left: 3px solid $colorDark;
+    border-bottom: 3px solid $colorDark;
+  }
+
+  &--two {
+    width: 75px;
+    height: 75px;
+    border-top: transparent;
+    border-bottom: 3px solid $colorDark;
+    animation: spin 1s infinite linear;
+  }
+
+  &--three {
+    width: 52px;
+    height: 52px;
+    animation: spin-invert 1s infinite linear;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-invert {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin-three {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

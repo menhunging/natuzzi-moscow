@@ -1131,6 +1131,25 @@ $(document).ready(function () {
     !$(".catalog-title").hasClass("catalog-title--white") &&
       $("header").addClass("header--yellow");
   }
+
+  if ($(".btn-search").length > 0) {
+    let search = $(".search-block");
+    $(".btn-search").on("click", function (event) {
+      event.preventDefault();
+      search.addClass("opened");
+      $(document).mouseup(function (e) {
+        if (!search.is(e.target) && search.has(e.target).length === 0) {
+          search.removeClass("opened");
+        }
+      });
+    });
+
+    $(".btn-search__close").on("click", function (event) {
+      event.preventDefault();
+      search.removeClass("opened");
+      $(document).off("click");
+    });
+  }
 });
 
 $(window).on("resize", function () {});

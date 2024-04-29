@@ -1281,4 +1281,13 @@
   .footer-menu__col ul {
     text-align: center;
   }
+
+  .breadcrumbs {
+    display: none;
+  }
+
+  .breadcrumbs-mobile {
+    display: flex;
+    padding: 16px 0;
+  }
 }

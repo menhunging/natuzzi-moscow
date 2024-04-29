@@ -346,8 +346,8 @@ $(document).ready(function () {
       $(".stock-controls .btn").on("click", function (e) {
         e.preventDefault();
 
-        let count = $(".stock-item").length / 2;
-        let itemHeight = $(".stock-item").outerHeight();
+        let count = $(".stock-list > div").length / 2;
+        let itemHeight = $(".stock-list > div").outerHeight();
         let parentsHeight = itemHeight * count;
         let gap = $(window).width() >= 1280 ? 40 : 20;
         parentsHeight = parentsHeight + count * gap - gap;

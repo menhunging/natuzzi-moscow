@@ -151,13 +151,14 @@ section {
   .catalog-main-item {
     width: calc(50% - 12px);
 
-    a:not(.btn-favorite) {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
+    // a:not(.catalog-main-item__link),
+    // a:not(.btn-favorite) {
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    //   width: 100%;
+    //   height: 100%;
+    // }
 
     &:nth-child(2) {
       margin-top: auto;
@@ -1214,6 +1215,11 @@ section {
     z-index: 5;
     color: $colorWhite;
   }
+
+  .video-section::before,
+  .video-section::after {
+    display: none;
+  }
 }
 
 .product-media__media {
@@ -1341,9 +1347,12 @@ section {
 .product-info {
   .picture {
     @include invisLink;
+    left: -310px;
+    width: calc(100% + 620px);
 
     img {
       position: relative;
+      width: 1610px;
     }
   }
 }
@@ -1351,6 +1360,11 @@ section {
 .product-info__row {
   & + .product-info__row {
     margin-top: 64px;
+
+    .picture {
+      left: auto;
+      right: 0;
+    }
   }
 
   &:nth-child(2n) {
@@ -1669,9 +1683,18 @@ section {
   font-weight: 400;
   line-height: 28px;
   text-align: left;
-  @include text-decoration-hover($colorDark);
   display: block;
   max-width: 90%;
+}
+
+.footer-menu li {
+  &:last-child {
+    order: 1;
+  }
+
+  &:nth-last-child(2) {
+    order: 2;
+  }
 }
 
 .slider-advantages {
@@ -2037,8 +2060,14 @@ section {
   flex-direction: column;
   gap: 40px;
 
+  & + .blog-col {
+    align-items: center;
+  }
+
   .text-block {
-    width: 100%;
+    width: 80%;
+    font-size: 22px;
+    line-height: 30px;
 
     ul {
       margin-top: 20px;
@@ -3622,5 +3651,60 @@ ol {
     background-color: $colorYellow;
     bottom: -41px;
     left: 75%;
+  }
+}
+
+.video-poster {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.clearPoster {
+  .video-poster {
+    display: none;
+  }
+}
+
+.video-youtube {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+
+  .video-iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.success-age {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 80px;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+
+  .caption {
+    margin-top: 16px;
+  }
+
+  p {
+  }
+
+  .btn {
+    margin-top: 16px;
   }
 }

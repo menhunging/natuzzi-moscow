@@ -1156,6 +1156,19 @@ $(document).ready(function () {
       openFullVideo($(this)[0]);
     });
   }
+
+  if ($(".menu-links").length > 0) {
+    let li = $(".menu-links li").length;
+
+    if (li <= 2) {
+      $(".menu-links").addClass("menu-links--small");
+    }
+  }
+
+  if ($(".video-youtube").length > 0) {
+    let src = $(".video-iframe").attr("data-src");
+    VIDEO_ID = src.split("embed/").pop();
+  }
 });
 
 $(window).on("resize", function () {});
@@ -1229,3 +1242,48 @@ function openFullVideo(elem) {
     elem.msRequestFullscreen();
   }
 }
+
+//Инициализация плеера для видео с ютуба
+var player;
+var VIDEO_ID = null; // для запуска видео с ютуба
+
+function onYouTubeIframeAPIReady() {
+  if (VIDEO_ID) {
+    player = new YT.Player("player", {
+      width: "100%",
+      height: "100%",
+      playerVars: { autoplay: 0, controls: 0, showinfo: 0, rel: 0, mute: 1 },
+      videoId: VIDEO_ID,
+      events: {
+        onReady: onPlayerReady,
+      },
+    });
+  }
+}
+
+function onPlayerReady(event) {
+  // player.playVideo();
+  event.target.playVideo();
+}
+
+function setupListener(event) {
+  $(".video__btn--full").on("click", () => playFullscreen(event));
+}
+
+function playFullscreen(event) {
+  if (iframe[0].requestFullscreen) {
+    iframe[0].requestFullscreen();
+  } else if (iframe[0].mozRequestFullScreen) {
+    iframe[0].mozRequestFullScreen();
+  } else if (iframe[0].webkitRequestFullscreen) {
+    iframe[0].webkitRequestFullscreen();
+  } else if (iframe[0].msRequestFullscreen) {
+    iframe[0].msRequestFullscreen();
+  }
+}
+
+function closeVideoPoster(parents) {
+  parents.addClass("clearPoster");
+  $(".video-poster").hide();
+}
+// /Инициализация плеера для видео с ютуба

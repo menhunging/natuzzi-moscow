@@ -88,18 +88,34 @@
             </div>
         </header>
         <main class="main">
+
             <section class="product-media">
                 <h1 class="caption caption--h1">Диваны Wellbe</h1>
 
+
                 <div class="product-media__media">
-                    <div class="video-section">
+                    <div class="video-youtube clearPoster">
+
+                        <div id="player" class="video-iframe"
+                            data-src="https://www.youtube.com/embed/5X-Ij4yTn3E?si=2oelXPeFH6GYOI3O">
+                        </div>
+
+                        <div class="video-poster">
+                            <picture class="picture">
+                                <source type="image/webp" srcset="../../img/pic-card.webp">
+                                <img src="../../img/pic-card.jpg" alt="">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <!-- <div class="video-section">
                         <video width="100%" height="100%" muted="muted" autoplay="autoplay" loop="loop" playsinline
                             controls>
                             <source src="../../img/video/video-mobile.mp4" type="video/webm" media="(max-width:767px)">
                             <source src="../../img/video/video.webm" type='video/webm; codecs="vp8, vorbis"'
                                 media="(min-width:768px)">
                         </video>
-                    </div>
+                    </div> -->
                     <!-- <div class="picture-section">
                         <picture class="picture">
                             <source type="image/webp" srcset="../../img/pic-card.webp" />
@@ -199,7 +215,7 @@
                         <div class="product-info__list" data-aos="fade-up">
                             <picture class="picture">
                                 <a href="#"></a>
-                                <img src="../../img/tkan1.png" alt="">
+                                <img src="../../img/tkan2.png" alt="">
                             </picture>
 
                             <a href="#" class="btn btn-circle btn-circle--dark">Больше
@@ -426,7 +442,7 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Баланс эстетики и инноваций</a>
+                                <span class="advantages-item__link">Баланс эстетики и инноваций</span>
                             </div>
                             <div class="swiper-slide advantages-item">
                                 <picture class="picture">
@@ -434,8 +450,8 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Комфорт
-                                    как основа стиля</a>
+                                <span class="advantages-item__link">Комфорт
+                                    как основа стиля</span>
                             </div>
                             <div class="swiper-slide advantages-item">
                                 <picture class="picture">
@@ -443,8 +459,8 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Качество
-                                    «Сделано в Италии»</a>
+                                <span class="advantages-item__link">Качество
+                                    «Сделано в Италии»</span>
                             </div>
                             <div class="swiper-slide advantages-item">
                                 <picture class="picture">
@@ -452,7 +468,7 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Контроль на каждом этапе производства</a>
+                                <span class="advantages-item__link">Контроль на каждом этапе производства</span>
                             </div>
                             <div class="swiper-slide advantages-item">
                                 <picture class="picture">
@@ -460,7 +476,7 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Контроль на каждом этапе производства</a>
+                                <span class="advantages-item__link">Контроль на каждом этапе производства</span>
                             </div>
                             <div class="swiper-slide advantages-item">
                                 <picture class="picture">
@@ -468,8 +484,8 @@
                                     <source type="image/webp" srcset="../../img/pic-product.webp" />
                                     <img src="../../img/pic-product.jpg" alt="" />
                                 </picture>
-                                <a href="#" class="advantages-item__link">Красота и элегантность, которые выдерживают
-                                    течение времени и модные тенденции.</a>
+                                <span class="advantages-item__link">Красота и элегантность, которые выдерживают
+                                    течение времени и модные тенденции.</span>
                             </div>
                         </div>
                     </div>
@@ -671,6 +687,7 @@
 <script src="../../libs/tabslet/jquery.tabslet.min.js"></script>
 <script src="../../libs/fancybox/fancybox.umd.js"></script>
 <script src="../../libs/inputmask/jquery.inputmask.min.js"></script>
+<script src="../../libs/youtube/youtube_iframe_api.js"></script>
 <script src="../../libs/aos/aos.js"></script>
 <script src="../../js/main.js"></script>
 

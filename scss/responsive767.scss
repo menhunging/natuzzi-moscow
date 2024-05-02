@@ -1302,4 +1302,26 @@
       left: 75%;
     }
   }
+
+  .menu-links--small {
+    width: auto;
+  }
+
+  .product-info .picture {
+    width: 100%;
+    left: auto;
+    right: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .success-age {
+    padding: 30px 15px;
+
+    svg {
+      width: 60px;
+    }
+  }
 }

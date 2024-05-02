@@ -1,6 +1,10 @@
 addEventListener("scroll", (event) => {
   currentScroll = $(window).scrollTop();
   // console.log("currentScroll", currentScroll);
+
+  if (currentScroll > 1000) {
+    $(".btn-top-page").addClass("visible");
+  }
 });
 
 addEventListener("wheel", (evt) => {
@@ -1168,6 +1172,16 @@ $(document).ready(function () {
   if ($(".video-youtube").length > 0) {
     let src = $(".video-iframe").attr("data-src");
     VIDEO_ID = src.split("embed/").pop();
+  }
+
+  if ($(".btn-top-page").length > 0) {
+    $(".btn-top-page").on("click", function () {
+      $(window).scrollTop(0);
+    });
+
+    if ($(".btn-add-favorite").length > 0) {
+      $(".btn-top-page").hide();
+    }
   }
 });
 

@@ -3708,3 +3708,27 @@ ol {
     margin-top: 16px;
   }
 }
+
+.btn-top-page {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='42' viewBox='0 0 32 42' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M16 41V1M16 1L1 16M16 1L31 16' stroke='%2335291E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: solid 1px $colorDark;
+  background-color: $colorWhite;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  display: block;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}

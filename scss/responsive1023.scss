@@ -29,9 +29,14 @@
 
   .catalog-products__list {
     padding-left: 225px;
+    width: 730px;
   }
 
   .about-head__col p {
     max-width: 345px;
+  }
+
+  .filter-catalog {
+    left: calc(50% - 372px);
   }
 }

@@ -1,7 +1,36 @@
 @media (max-width: 479px) {
+  .product-list {
+    .catalog-main-item__size,
+    .catalog-main-item__brand,
+    .catalog-main-item__name {
+      max-width: 320px;
+    }
+  }
+}
+
+@media (max-width: 419px) {
+  .catalog__links a {
+    font-size: 24px;
+    line-height: 30px;
+    padding: 12px 0;
+
+    &::before {
+      width: 40px;
+      height: 40px;
+      background-size: 8px;
+    }
+  }
 }
 
 @media (max-width: 389px) {
+  .product-list {
+    .catalog-main-item__size,
+    .catalog-main-item__brand,
+    .catalog-main-item__name {
+      max-width: 250px;
+    }
+  }
+
   .slider-design .swiper-slide.swiper-slide-active .main-design {
     width: 205px;
   }

@@ -3,6 +3,10 @@
     width: calc(100% - 236px);
     margin-left: auto;
   }
+
+  .filter-catalog {
+    left: calc(50% - 686px);
+  }
 }
 
 @media (max-width: 1799px) {
@@ -10,4 +14,3 @@
     display: none;
   }
 }
-

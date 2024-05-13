@@ -12,6 +12,20 @@
   }
 
   .catalog-products__list {
-    width: calc(100% - 280px);
+    width: 960px;
+  }
+
+  .caption-h1--small {
+    font-size: 45px;
+    line-height: 50px;
+  }
+
+  .product-list .catalog-main-item .picture {
+    height: auto;
+    padding-top: calc(342 / 609 * 100%);
+  }
+
+  .filter-catalog {
+    left: calc(50% - 615px);
   }
 }

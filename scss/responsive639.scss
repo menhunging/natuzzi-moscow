@@ -4,4 +4,12 @@
     margin-top: 16px;
     gap: 16px;
   }
+
+  .product-list {
+    .catalog-main-item__size,
+    .catalog-main-item__brand,
+    .catalog-main-item__name {
+      max-width: 300px;
+    }
+  }
 }

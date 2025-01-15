@@ -6,6 +6,10 @@
       max-width: 320px;
     }
   }
+
+  .black-friday__inner {
+    padding-top: calc(160 / 400 * 100%);
+  }
 }
 
 @media (max-width: 419px) {

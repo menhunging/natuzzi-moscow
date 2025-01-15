@@ -12,4 +12,29 @@
       max-width: 300px;
     }
   }
+
+  .blog-line {
+    &:not(.designer-page__head) {
+      h1,
+      .caption--h1 {
+        font-size: 32px;
+        line-height: 39px;
+      }
+    }
+  }
+
+  .title-page .btn-search-model{
+    position: relative;
+    top: auto;
+    left: 0;
+    right: auto;
+    width: auto;
+    margin: 0;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .product-media .caption{
+    padding: 0;
+  }
 }

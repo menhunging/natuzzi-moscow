@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+    <title>Наличие</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../img/favicon/safari-pinned-tab.svg" color="#030e2c">
+    <meta name="msapplication-TileColor" content="#030e2c">
+    <meta name="theme-color" content="#030e2c">
+
+    <link rel="stylesheet" type="text/css" href="../../fonts/stylesheet.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../libs/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../libs/selectric/selectric.css" />
+    <link rel="stylesheet" type="text/css" href="../../libs/micromodal/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="../../libs/fancybox/fancybox.css" />
+    <link rel="stylesheet" type="text/css" href="../../libs/aos/aos.css" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="#"></a>
+                        <picture class="picture">
+                            <img src="../../img/svg/logo.svg" alt="logo">
+                        </picture>
+                    </div>
+                    <nav class="menu">
+                        <div class="menu-head">
+                            <span class="menu-title">Меню</span>
+                            <button class="btn-close"></button>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link active">Каталог</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">О бренде</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">Дизайнеры</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">Проекты</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">Партнеры</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">3D - модели</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link menu-link--arrow">Еще</a>
+                                <div class="menu-sub">
+                                    <ul class="menu-sub__list">
+                                        <li><a href="#">Материалы</a></li>
+                                        <li><a href="#">Салоны</a></li>
+                                        <li><a href="#">Гарантия, доставка, уход</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header-controls">
+                        <a href="#" class="btn-favorite"></a>
+                        <a href="#" class="btn-search"></a>
+                        <a href="#" class="btn-phone"></a>
+                        <a href="#" class="link-phone">+7 906 78 77 888</a>
+                        <a href="#" class="btn btn--full btn--dark">Обратный звонок</a>
+                    </div>
+                    <button class="burger">
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                        <span class="burger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="catalog-title catalog-title--white">
+                <div class="container">
+                    <div class="breadcrumbs" data-aos="fade-right" data-aos-delay="300">
+                        <ul>
+                            <li><a href="#" class="breadcrumbs__link">Главная</a></li>
+                            <li><span class="breadcrumbs__link">Наличие</span></li>
+                        </ul>
+                    </div>
+                    <div class="title-page" data-aos="fade-right" data-aos-delay="600">
+                        <h1 class="caption caption--h1">Наличие</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section class="nalihie-block">
+                <div class="container">
+                    <div class="nalihie-block__inner">
+                        <span data-aos="fade-up" data-aos-delay="800">Особенное предложение по товарам в наличии в
+                            салонах</span>
+                        <div class="nalihie-block__controls" data-aos="fade-up" data-aos-delay="1000">
+                            <a href="#" class="btn">Скачать PDF <span>(3
+                                    мб)</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="salons-section">
+                <div class="container">
+
+                    <span class="title-map">Салоны, в которых представлены интерьерные решения NATUZZI ITALIA</span>
+
+                    <div class="map" id="map"></div>
+
+                    <div class="saloins-list">
+                        <div class="saloins-item" data-aos="fade-right" data-aos-delay="300">
+                            <div class="saloins-item__head">
+                                <span>Серпуховская</span>
+                            </div>
+                            <div class="saloins-item__body">
+                                <ul>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <p>
+                                            <strong> ТВЦ Твинстор</strong>
+                                            1-й Щипковский переулок, 4
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <p>пн-вс с 10:00-21:00</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.7 9.5L18.7005 11.5L16.7 9.5M18.9451 11C18.9814 10.6717 19 10.338 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.8273 19 15.35 17.6963 17 15.6573M10 5V10L13 12"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <a href="tel:+7 499 110 98 14">+7 499 110 98 14</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <a href="mailto:natuzzi@info.ru">natuzzi@info.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="saloins-item" data-aos="fade-left" data-aos-delay="600">
+                            <div class="saloins-item__head">
+                                <span>Шелепиха</span>
+                            </div>
+                            <div class="saloins-item__body">
+                                <ul>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <p>
+                                            <strong>THE DOM</strong>
+                                            Шелепихинская набережная, 34к2
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <p>пн-вс с 10:00-21:00</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.7 9.5L18.7005 11.5L16.7 9.5M18.9451 11C18.9814 10.6717 19 10.338 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.8273 19 15.35 17.6963 17 15.6573M10 5V10L13 12"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <a href="tel:+7 499 110 98 14">+7 499 110 98 14</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <a href="mailto:natuzzi@info.ru">natuzzi@info.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="saloins-item" data-aos="fade-right" data-aos-delay="900">
+                            <div class="saloins-item__head">
+                                <span>Ховрино</span>
+                            </div>
+                            <div class="saloins-item__body">
+                                <ul>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <p>
+                                            <strong>МТК Гранд-2 </strong>
+                                            ул. Бутаково, 4
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <p>пн-вс с 10:00-22:00</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.7 9.5L18.7005 11.5L16.7 9.5M18.9451 11C18.9814 10.6717 19 10.338 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.8273 19 15.35 17.6963 17 15.6573M10 5V10L13 12"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <a href="tel:+7 499 110 98 14">+7 499 110 98 14</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <a href="mailto:natuzzi@info.ru">natuzzi@info.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="saloins-item" data-aos="fade-left" data-aos-delay="1200">
+                            <div class="saloins-item__head">
+                                <span>Нахимовский проспект</span>
+                            </div>
+                            <div class="saloins-item__body">
+                                <ul>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <p>
+                                            <strong>Mobel Expo </strong>
+                                            Нахимовский проспект, 24
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="18" height="23" viewBox="0 0 18 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 12.5C10.6569 12.5 12 11.1569 12 9.5C12 7.84315 10.6569 6.5 9 6.5C7.34315 6.5 6 7.84315 6 9.5C6 11.1569 7.34315 12.5 9 12.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M9 21.5C13 17.5 17 13.9183 17 9.5C17 5.08172 13.4183 1.5 9 1.5C4.58172 1.5 1 5.08172 1 9.5C1 13.9183 5 17.5 9 21.5Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <p>пн-вс с 10:00-21:00</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.7 9.5L18.7005 11.5L16.7 9.5M18.9451 11C18.9814 10.6717 19 10.338 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.8273 19 15.35 17.6963 17 15.6573M10 5V10L13 12"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <a href="tel:+7 499 110 98 14">+7 499 110 98 14</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.5 15L13.8571 9M8.14286 9L1.50003 15M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                                                    stroke="#35291E" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+
+                                        <a href="mailto:natuzzi@info.ru">natuzzi@info.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="subscribe-section">
+                <div class="container">
+                    <div class="subscribe-section__content">
+                        <span class="caption caption--h3">Подпишитесь на нас</span>
+
+                        <ul class="social-list">
+                            <li>
+                                <a href="#" class="social-link social-link--telegram"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link social-link--insta"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link social-link--facebook"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-link social-link--whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="footer-top__inner">
+                        <div class="footer-top__text">
+                            <span class="footer-top__title">Хотите получать новости о рекламных кампаниях
+                                Natuzzi?</span>
+                            <span class="footer-top__desc">Оставьте свою электронную почту</span>
+                        </div>
+
+                        <form action="" class="footer-top__form">
+                            <input type="email" placeholder="E-mail">
+                            <button class="btn btn-circle btn-circle--full">
+                                <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.469675 13.5303C0.176775 13.2374 0.176775 12.7625 0.469675 12.4696L5.93931 6.99998L0.469675 1.53028C0.176775 1.23738 0.176775 0.762575 0.469675 0.469675C0.762575 0.176775 1.23738 0.176775 1.53028 0.469675L7.53031 6.46968C7.8232 6.76258 7.8232 7.23738 7.53031 7.53028L1.53028 13.5303C1.23738 13.8232 0.762575 13.8232 0.469675 13.5303Z"
+                                        fill="white" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-center">
+                <div class="container">
+                    <div class="footer-center__inner">
+                        <div class="logo">
+                            <a href="#"></a>
+                            <picture class="picture">
+                                <img src="../../img/svg/logo-white.svg" alt="logo">
+                            </picture>
+                        </div>
+
+                        <div class="footer-menu">
+                            <div class="footer-menu__col">
+                                <span class="footer-menu__title">Каталог</span>
+                                <ul>
+                                    <li><a href="#">Гостиные</a></li>
+                                    <li><a href="#">Столовые</a></li>
+                                    <li><a href="#">Спальни</a></li>
+                                    <li><a href="#">Декор</a></li>
+                                    <li><a href="#">New collection</a></li>
+                                    <li><a href="#">Green rabbit</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-menu__col">
+                                <span class="footer-menu__title">О компании</span>
+                                <ul>
+                                    <li><a href="#">О бренде</a></li>
+                                    <li><a href="#">Материалы</a></li>
+                                    <li><a href="#">Дизайнеры</a></li>
+                                    <li><a href="#">Салоны</a></li>
+                                    <li><a href="#">Проекты</a></li>
+                                    <li><a href="#">Гарантия, доставка, уход</a></li>
+                                    <li><a href="#">3D - модели</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-menu__col">
+                                <span class="footer-menu__title">Правовая информация</span>
+                                <ul>
+                                    <li><a href="#">Политика конфиденциальности</a></li>
+                                    <li><a href="#">Файлы Cookie</a></li>
+                                    <li><a href="#">Условия использования сайта</a></li>
+                                </ul>
+
+                                <a href="#" class="footer-menu__link">Сотрудничество</a>
+                            </div>
+
+                        </div>
+
+                        <a href="#" class="btn btn-circle btn-circle--full footer-bottom__btn">Обратный звонок</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-bottom__inner">
+                        <span>Информация на сайте не является публичной офертой</span>
+
+                        <span class="copyRight">&copy; Natuzzi Italia <span class="thisYear"></span></span>
+
+                        <div class="developers">
+                            <span class="developers__title">Разработка сайта</span>
+                            <a href="#" class="developers__icons">
+                                <svg width="65" height="20" viewBox="0 0 65 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.2031 0H0V19.661H2.70833V11.3559H10.4948L12.526 9.32203V8.30509H2.70833V2.88136H13.2031V0Z"
+                                        fill="white" fill-opacity="0.8" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M19.5508 20C23.337 20 26.4062 17.0405 26.4062 13.3898C26.4062 9.73914 23.337 6.77966 19.5508 6.77966C15.7646 6.77966 12.6953 9.73914 12.6953 13.3898C12.6953 17.0405 15.7646 20 19.5508 20ZM19.5508 17.6271C21.9347 17.6271 23.8672 15.73 23.8672 13.3898C23.8672 11.0496 21.9347 9.15254 19.5508 9.15254C17.1669 9.15254 15.2344 11.0496 15.2344 13.3898C15.2344 15.73 17.1669 17.6271 19.5508 17.6271Z"
+                                        fill="white" fill-opacity="0.8" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M58.1445 20C61.9307 20 65 17.0405 65 13.3898C65 9.73914 61.9307 6.77966 58.1445 6.77966C54.3584 6.77966 51.2891 9.73914 51.2891 13.3898C51.2891 17.0405 54.3584 20 58.1445 20ZM58.1445 17.6271C60.5284 17.6271 62.4609 15.73 62.4609 13.3898C62.4609 11.0496 60.5284 9.15254 58.1445 9.15254C55.7606 9.15254 53.8281 11.0496 53.8281 13.3898C53.8281 15.73 55.7606 17.6271 58.1445 17.6271Z"
+                                        fill="white" fill-opacity="0.8" />
+                                    <path
+                                        d="M31.1458 7.11864H28.4375V17.7966L30.2995 19.661H39.6094V7.11864H36.5625V16.9492H31.1458V7.11864Z"
+                                        fill="white" fill-opacity="0.8" />
+                                    <path
+                                        d="M45.3646 7.11864H42.487V19.661H45.3646V11.6949L49.2578 9.49153H51.2891V7.11864H48.2422L45.3646 8.81356V7.11864Z"
+                                        fill="white" fill-opacity="0.8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<script src="../../libs/jquery/jquery-3.7.1.min.js"></script>
+<script src="../../libs/swiper/swiper-bundle.min.js"></script>
+<script src="../../libs/selectric/jquery.selectric.min.js"></script>
+<script src="../../libs/micromodal/micromodal.min.js"></script>
+<script src="../../libs/tabslet/jquery.tabslet.min.js"></script>
+<script src="../../libs/fancybox/fancybox.umd.js"></script>
+<script src="../../libs/inputmask/jquery.inputmask.min.js"></script>
+<script src="../../libs/aos/aos.js"></script>
+<script src="../../js/main.js"></script>
+
+</html>

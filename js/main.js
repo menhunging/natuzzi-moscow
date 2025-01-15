@@ -110,6 +110,7 @@ $(document).ready(function () {
 
     $("[data-micromodal-close]").map(function () {
       $(this).click((e) => {
+        //        e.preventDefault();
         if ($(this).attr("data-modal")) {
           setTimeout(() => {
             $("body").addClass("modal-open");
@@ -572,7 +573,7 @@ $(document).ready(function () {
     });
 
     function fixedBlockCatalog() {
-      let scroll = $("html").scrollTop();
+      let scroll = $("body").scrollTop();
 
       if (scroll > positionBlock) {
         $(".catalog-links-invis").addClass("sticky");
@@ -701,8 +702,9 @@ $(document).ready(function () {
 
   if ($(".slider-product-images").length > 0) {
     const swiper = new Swiper(".slider-product-images", {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 24,
+      initialSlide: 1,
       autoHeight: true,
       centeredSlides: true,
       watchSlidesProgress: true,
@@ -713,19 +715,14 @@ $(document).ready(function () {
       breakpoints: {
         0: {
           slidesPerView: 1,
-          initialSlide: 1,
-          autoHeight: true,
-          centeredSlides: true,
           spaceBetween: 16,
         },
         768: {
-          slidesPerView: 3,
-          autoHeight: true,
-          spaceBetween: 14,
+          slidesPerView: 1,
+          spaceBetween: 16,
         },
         1280: {
-          slidesPerView: 3,
-          autoHeight: true,
+          slidesPerView: 1,
           spaceBetween: 24,
         },
       },
@@ -868,6 +865,7 @@ $(document).ready(function () {
       head.addClass("close");
       body.stop().slideUp();
     }
+
     function filterClose(head, body) {
       head.removeClass("close");
       body.stop().slideDown();
@@ -895,23 +893,39 @@ $(document).ready(function () {
   }
 
   if ($(".catalog-products").length > 0) {
-    let positionBlock = $(".catalog-products").offset().top;
+    // let positionBlock = $(".catalog-products").offset().top;
 
-    fixedFilter(positionBlock);
+    // fixedFilter(positionBlock);
 
-    $(window).scroll(function () {
-      fixedFilter(positionBlock);
+    // $(window).scroll(function () {
+    //   fixedFilter(positionBlock);
+    // });
+
+    // function fixedFilter() {
+    //   let scroll = $("body").scrollTop();
+
+    //   if (scroll > positionBlock) {
+    //     $(".filter-catalog").addClass("sticky");
+    //   } else {
+    //     $(".filter-catalog").removeClass("sticky");
+    //   }
+    // }
+
+    var sidebar = new StickySidebar(".filter-catalog", {
+      containerSelector: ".catalog-products",
+      // innerWrapperSelector: ".filter-catalog-inner",
+      topSpacing: 40,
+      bottomSpacing: 40,
     });
 
-    function fixedFilter() {
-      let scroll = $("html").scrollTop();
+    // var stickyEl = new Sticksy(".filter-catalog", {
+    //   topSpacing: 60,
+    // });
 
-      if (scroll > positionBlock) {
-        $(".filter-catalog").addClass("sticky");
-      } else {
-        $(".filter-catalog").removeClass("sticky");
-      }
-    }
+    // stickyEl.onStateChanged = function (state) {
+    //   if (state === "fixed") stickyEl.nodeRef.classList.add("widget--sticky");
+    //   else stickyEl.nodeRef.classList.remove("widget--sticky");
+    // };
   }
 
   if ($(".stock-page").length > 0) {
@@ -1149,7 +1163,7 @@ $(document).ready(function () {
     });
 
     $(".btn-search__close").on("click", function (event) {
-      event.preventDefault();
+      //event.preventDefault();
       search.removeClass("opened");
       $(document).off("click");
     });
@@ -1183,56 +1197,16 @@ $(document).ready(function () {
       $(".btn-top-page").hide();
     }
   }
+
+  if ($(".header-line__close").length > 0) {
+    $(".header-line__close").on("click", function () {
+      $(".header-line").hide();
+    });
+  }
+
 });
 
 $(window).on("resize", function () {});
-
-$(window).on("load", function () {
-  if ($(".map").length > 0) {
-    setTimeout(() => ymapsLoad(), 500);
-    setTimeout(() => ymaps.ready(init), 1000);
-  }
-
-  function ymapsLoad() {
-    let script = document.createElement("script");
-    script.src =
-      "https://api-maps.yandex.ru/2.1/?apikey=0cec76e1-1847-46ed-a96a-c84c0917f2ad&lang=ru_RU&amp;scroll=false";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  }
-
-  function init() {
-    let myMap = new ymaps.Map("map", {
-      center: [55.744756354739636, 37.57666889814756],
-      zoom: 10,
-      controls: ["zoomControl"],
-    });
-
-    myMap.behaviors.disable("scrollZoom");
-    // myMap.behaviors.disable("drag");
-
-    let location = {
-      iconLayout: "default#image",
-      iconImageHref: "/img/svg/location.svg",
-      iconImageSize: [80, 80],
-      iconImageOffset: [-40, -40],
-    };
-
-    let placemark1 = new ymaps.Placemark(
-      [55.744756354739636, 37.57666889814756],
-      {},
-      location
-    );
-
-    let placemark2 = new ymaps.Placemark([55.763194, 37.508607], {}, location);
-    let placemark3 = new ymaps.Placemark([55.886645, 37.436625], {}, location);
-    let placemark4 = new ymaps.Placemark([55.672428, 37.582709], {}, location);
-
-    myMap.geoObjects.add(placemark1);
-    myMap.geoObjects.add(placemark2);
-    myMap.geoObjects.add(placemark3);
-    myMap.geoObjects.add(placemark4);
-  }
-});
 
 $(document).on("fullscreenchange", function (event) {
   if (document.fullscreenElement) {
@@ -1257,6 +1231,42 @@ function openFullVideo(elem) {
   }
 }
 
+$(function () {
+  var load_more = false;
+
+  $(window).scroll(function () {
+    if ($("#ajax_next_page").length && !load_more) {
+      var url = $("#ajax_next_page").attr("href");
+      var offset_button = $("#ajax_next_page").offset();
+      if ($(this).scrollTop() >= offset_button.top - $(window).height()) {
+        load_more = true;
+        BX.showWait();
+        $.ajax({
+          url: url,
+          type: "POST",
+          data: { ajax_load: "Y" },
+          success: function (data) {
+            if ($("#catalog-products__list").length > 0) {
+              $("#catalog-products__list").append(
+                $(data).find("#catalog-products__list").html()
+              );
+            } else {
+              $("#other__list").append($(data).find("#other__list").html());
+            }
+
+            $(".catalog-pagination").html("");
+            $(".catalog-pagination").append(
+              $(data).find(".catalog-pagination").html()
+            );
+            load_more = false;
+            BX.closeWait();
+          },
+        });
+      }
+    }
+  });
+});
+
 //Инициализация плеера для видео с ютуба
 var player;
 var VIDEO_ID = null; // для запуска видео с ютуба
@@ -1276,7 +1286,6 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-  // player.playVideo();
   event.target.playVideo();
 }
 
@@ -1301,3 +1310,121 @@ function closeVideoPoster(parents) {
   $(".video-poster").hide();
 }
 // /Инициализация плеера для видео с ютуба
+
+$(document).on("submit", "#form-js", function (e) {
+  $(this).find(".sp").val("nospam");
+  var action = $(this).attr("action");
+  e.preventDefault();
+  BX.showWait();
+  $.ajax({
+    type: "post",
+    url: action,
+    dataType: "html",
+    data: $(this).serialize(),
+    success: function (response) {
+      if (response.length > 0) {
+        $("#form-js").html(
+          '<h2 class="caption caption--h2">Спасибо, ваша заявка отправлена!</h2>\n' +
+            "\n" +
+            "                <p>\n" +
+            "                    Мы свяжемся с вами в ближайшее время, чтобы уточнить детали.\n" +
+            "                </p>"
+        );
+      }
+      BX.closeWait();
+    },
+  });
+});
+
+// preloader
+let initLoader = function () {
+  if (document.querySelector(".c-js-loader.wrapper") === null) {
+    let loader = document.createElement("div");
+    let ovderlay = document.createElement("div");
+    ovderlay.setAttribute("class", "preloader-overlay");
+    loader.setAttribute("class", "c-js-loader wrapper");
+    loader.setAttribute("role", "loader");
+    loader.style.cssText = "min-height: 1px; min-width: 1px;";
+    let btnCloseLoader = document.createElement("button");
+    btnCloseLoader.setAttribute("class", "c-js-loader btn-close");
+    btnCloseLoader.setAttribute("type", "button");
+    btnCloseLoader.setAttribute("title", "Закрыть Loader");
+    btnCloseLoader.setAttribute("role", "loader-close");
+    btnCloseLoader.innerHTML = '<span class="text">Закрыть</span>';
+    btnCloseLoader.addEventListener("mousedown", function (event) {
+      document.querySelector("body").classList.remove("--js-loader-show");
+    });
+    loader.prepend(btnCloseLoader);
+    document.querySelector("body").prepend(loader);
+    document.querySelector("body").prepend(ovderlay);
+  }
+};
+
+initLoader();
+
+let windowLoader = function (
+  mode = "",
+  position = "center",
+  showClose = false,
+  duration = 0
+) {
+  if (mode === "") {
+    return false;
+  }
+  let loaderDOM = document.querySelector(".c-js-loader.wrapper");
+  let bodyDOM = document.querySelector("body");
+  let loaderClose = loaderDOM.querySelector(".c-js-loader.btn-close");
+  if (showClose) {
+    loaderClose.classList.add("--show-btn");
+  } else {
+    loaderClose.classList.remove("--show-btn");
+  }
+  loaderDOM.setAttribute("data-position", position);
+
+  let bodyClass = "--js-loader-show";
+  if (mode === "show") {
+    bodyDOM.classList.add(bodyClass);
+    if (duration > 0) {
+      setTimeout(function () {
+        bodyDOM.classList.remove(bodyClass);
+      }, duration * 1000);
+    }
+  }
+  if (mode === "close") {
+    bodyDOM.classList.remove(bodyClass);
+    if (duration > 0) {
+      setTimeout(function () {
+        bodyDOM.classList.remove(bodyClass);
+      }, duration * 1000);
+    }
+  }
+  if (mode === "error") {
+    if (loaderDOM === null) {
+      initLoader();
+      loaderDOM = document.querySelector(".c-js-loader.wrapper");
+    }
+    bodyDOM.classList.add(bodyClass);
+    if (loaderDOM !== null) {
+      loaderDOM.classList.add("--error");
+    }
+    if (duration == 0) {
+      duration = 3;
+    }
+    if (duration >= 0) {
+      setTimeout(function () {
+        loaderDOM.classList.remove("--error");
+        bodyDOM.classList.remove(bodyClass);
+      }, duration * 1000);
+    }
+  }
+};
+
+// BX.showWait = function () {
+//   windowLoader("show");
+// };
+
+// BX.closeWait = function () {
+//   windowLoader("close");
+// };
+
+// /preloader

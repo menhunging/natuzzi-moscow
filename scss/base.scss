@@ -37,6 +37,10 @@ input {
   .footer {
     margin-top: auto;
   }
+
+  &.visible {
+    overflow: visible;
+  }
 }
 
 .logo {
@@ -63,6 +67,7 @@ input {
     top: 0;
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -141,7 +146,7 @@ input {
     &:checked {
       & + label {
         &::after {
-          background-color: $colorBlack;
+          background-color: rgba(53, 41, 30, 1);
         }
       }
     }
@@ -164,7 +169,7 @@ input {
     color: $colorBlack;
     display: block;
     text-align: left;
-    @include transition(color 0.3s);
+    transition: all 0.3s;
     width: 100%;
 
     @include before {
@@ -174,17 +179,21 @@ input {
       height: 20px;
       transform: translateY(-50%);
       border: solid 1px rgba(0, 0, 0, 0.48);
-      border-radius: 3px;
+      border-radius: 50%;
     }
 
     @include after {
       top: 50%;
-      left: 5px;
+      left: 0;
       top: 50%;
-      width: 10px;
-      height: 10px;
+      width: 20px;
+      height: 20px;
       transform: translateY(-50%);
-      border-radius: 2px;
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9 1L3.5 6.5L1 4' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 12px;
     }
   }
 
@@ -629,6 +638,66 @@ video {
   &.visible {
     opacity: 0.35;
   }
+}
+
+video {
+  background-color: transparent;
+  border-bottom: 1px solid transparent; /* хак для предотвращения мелькания при загрузке на некоторых версиях ios */
+
+  &::-webkit-media-controls-panel {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &::-webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+*::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none !important;
+}
+
+*::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Old shadow dom for play button */
+
+*::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* New shadow dom for play button */
+
+/* This one works! */
+
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.menu-link[href="/salon/"] {
+  font-weight: 600;
 }
 
 @media (min-width: 1200px) {

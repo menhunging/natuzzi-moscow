@@ -7,6 +7,14 @@
   .filter-catalog {
     left: calc(50% - 686px);
   }
+
+  .filter-catalog.sticky .filter-catalog-inner {
+    left: calc(50% - 686px);
+  }
+
+  .filter-catalog.sticky.sticky--bottom .filter-catalog-inner {
+    left: 0;
+  }
 }
 
 @media (max-width: 1799px) {

@@ -91,10 +91,10 @@
     @include before {
       opacity: 0;
       pointer-events: none;
-      left: calc(50% - 29px);
+      left: calc(50% - 35px);
       top: 100%;
-      width: 58px;
-      height: 6px;
+      width: 70px;
+      height: 8px;
       transform: translateY(10px);
       background-position: center;
       background-repeat: no-repeat;

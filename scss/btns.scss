@@ -315,6 +315,23 @@
   width: 20px;
   height: 20px;
   transition: all 0.3s;
+  position: relative;
+
+  span{
+    position: absolute;
+    left: calc(100% - 8px);
+    top: calc(100% - 8.5px);
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    background-color: #ff4d00;
+    border-radius: 50%;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+  }
 
   &:hover {
     opacity: 0.8;

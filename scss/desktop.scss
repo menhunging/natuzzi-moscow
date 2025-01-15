@@ -5232,6 +5232,7 @@ div.title-search-result {
 
   .btn {
     width: 100%;
+    border-radius: 20px;
   }
 }
 
@@ -5275,10 +5276,10 @@ div.title-search-result {
   }
 
   .btn {
-    max-width: 320px;
+    max-width: 240px;
     width: 100%;
     margin: 0 auto;
-    padding: 34px 0;
+    padding: 16px;
   }
 }
 

@@ -1232,6 +1232,21 @@ video::-webkit-media-controls-start-playback-button {
   width: 20px;
   height: 20px;
   transition: all 0.3s;
+  position: relative;
+}
+.btn-basket span {
+  position: absolute;
+  left: calc(100% - 8px);
+  top: calc(100% - 8.5px);
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  background-color: #ff4d00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
 }
 .btn-basket:hover {
   opacity: 0.8;
@@ -6485,6 +6500,7 @@ div.title-search-result {
 }
 .basket-controls .btn {
   width: 100%;
+  border-radius: 20px;
 }
 
 .basket-empty {
@@ -6523,10 +6539,10 @@ div.title-search-result {
   line-height: 44px;
 }
 .basket-empty .btn {
-  max-width: 320px;
+  max-width: 240px;
   width: 100%;
   margin: 0 auto;
-  padding: 34px 0;
+  padding: 16px;
 }
 
 #modal-success2 .modal__container {

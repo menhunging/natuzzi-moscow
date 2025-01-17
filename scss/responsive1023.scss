@@ -71,14 +71,25 @@
     right: -143px;
   }
 
-  .header-line{
-    & > strong{
+  .header-line {
+    & > strong {
       display: block;
     }
 
-    span{
+    span {
       display: block;
     }
   }
 
+  .saloins-item__body {
+    padding: 8px 22px;
+  }
+
+  .saloins-item__head::before {
+    left: 21px;
+  }
+
+  .saloins-item__head {
+    padding: 16px 58px;
+  }
 }

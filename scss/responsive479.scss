@@ -69,4 +69,9 @@
   .form-manager__form .input-list {
     width: 55%;
   }
+
+  .product-action__statuses{
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 }

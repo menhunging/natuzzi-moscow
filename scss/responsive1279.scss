@@ -1369,4 +1369,8 @@
   .basket-empty {
     gap: 20px;
   }
+
+  .basket-bottom{
+    grid-template-columns: 248px 1fr 255px;
+  }
 }

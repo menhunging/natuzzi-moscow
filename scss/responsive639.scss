@@ -23,7 +23,7 @@
     }
   }
 
-  .title-page .btn-search-model{
+  .title-page .btn-search-model {
     position: relative;
     top: auto;
     left: 0;
@@ -34,7 +34,12 @@
     margin-top: 10px;
   }
 
-  .product-media .caption{
+  .product-media .caption {
     padding: 0;
+  }
+
+  .marquee-section__block {
+    font-size: 9px;
+    padding: 5px 0;
   }
 }

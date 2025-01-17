@@ -6626,6 +6626,65 @@ div.title-search-result {
   text-decoration-color: rgba(53, 41, 30, 0.6);
 }
 
+.marquee-section {
+  display: flex;
+  overflow-x: hidden;
+  background-color: rgb(53, 41, 30);
+}
+.marquee-section .items-wrap {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 20px;
+}
+.marquee-section .items {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  min-width: 100%;
+}
+.marquee-section .marquee {
+  animation: scroll 20s linear infinite;
+}
+.marquee-section .items-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+
+.marquee-section__block {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  padding: 16px 0;
+  white-space: nowrap;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+}
+.marquee-section__block a {
+  text-decoration: underline;
+}
+.marquee-section__block a:hover {
+  text-decoration-color: transparent;
+}
+
+.marquee-section__block--3 {
+  display: none;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 20px));
+  }
+}
+@media (min-width: 1950px) {
+  .marquee-section__block--3 {
+    display: block;
+  }
+}
 @media (min-width: 1280px) {
   .menu {
     display: block !important;
@@ -6662,6 +6721,11 @@ div.title-search-result {
     display: none;
   }
 }
+@media (max-width: 1599px) {
+  .marquee-section__block {
+    font-size: 15px;
+  }
+}
 @media (max-width: 1439px) {
   .product-action__controls {
     left: calc(100% - 10px);
@@ -6694,6 +6758,9 @@ div.title-search-result {
   }
   .stock-item .caption {
     min-height: 40px;
+  }
+  .marquee-section__block {
+    font-size: 14px;
   }
 }
 @media (max-width: 1279px) {
@@ -7754,6 +7821,9 @@ div.title-search-result {
   }
   .basket-bottom {
     grid-template-columns: 248px 1fr 255px;
+  }
+  .marquee-section__block--2 {
+    display: none;
   }
 }
 @media (max-width: 1023px) {
@@ -9225,6 +9295,10 @@ div.title-search-result {
     font-size: 10px;
     line-height: 12px;
   }
+  .marquee-section__block {
+    font-size: 11px;
+    padding: 7px 0;
+  }
 }
 @media (max-width: 639px) {
   .catalog-list {
@@ -9254,6 +9328,10 @@ div.title-search-result {
   }
   .product-media .caption {
     padding: 0;
+  }
+  .marquee-section__block {
+    font-size: 9px;
+    padding: 5px 0;
   }
 }
 @media (max-width: 479px) {
@@ -9315,6 +9393,10 @@ div.title-search-result {
   .product-action__statuses {
     flex-direction: column-reverse;
     align-items: flex-start;
+  }
+  .marquee-section__block {
+    font-size: 7px;
+    padding: 5px 0;
   }
 }
 

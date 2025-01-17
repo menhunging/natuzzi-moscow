@@ -2564,7 +2564,7 @@ ol {
     @include text-decoration-hover($colorDark);
   }
 
-  .link{
+  .link {
     margin-top: 16px;
     margin-bottom: 16px;
     display: inline-block;
@@ -2573,7 +2573,7 @@ ol {
     text-decoration-thickness: 1.5px;
     text-underline-offset: 4px;
 
-    &:hover{
+    &:hover {
       text-decoration-color: transparent;
     }
   }
@@ -5366,5 +5366,68 @@ div.title-search-result {
 
   a {
     @include text-decoration-hover(rgba(53, 41, 30, 0.6));
+  }
+}
+
+.marquee-section {
+  display: flex;
+  overflow-x: hidden;
+  background-color: rgba(53, 41, 30, 1);
+
+  .items-wrap {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 20px;
+  }
+
+  .items {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    min-width: 100%;
+  }
+
+  .marquee {
+    animation: scroll 20s linear infinite;
+  }
+
+  .items-wrap:hover .marquee {
+    animation-play-state: paused;
+  }
+}
+
+.marquee-section__block {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  padding: 16px 0;
+  white-space: nowrap;
+  display: inline-block;
+  color: $colorWhite;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+.marquee-section__block--1{}
+.marquee-section__block--2{}
+.marquee-section__block--3{
+  display: none;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 20px));
   }
 }
